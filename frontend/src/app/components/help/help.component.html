@@ -1,0 +1,55 @@
+<div class="container">
+  <h2>Hướng dẫn cài đặt angular</h2>
+
+  <div class="content">
+    <p>Để cài đặt angular, đầu tiên ta new 1 cái angular project</p>
+
+    <blockquote>
+      ng new frontend
+    </blockquote>
+
+    <p>Sau khi khởi tạo nó rồi, đơn giản là ta sẽ start nó thôi đúng ko</p>
+
+    <blockquote>
+      ng serve --open
+    </blockquote>
+
+    <p>--open khai báo tự open cái browser lên để show cái page.</p>
+
+    <p>Sau đó, ta add material cho cái project này</p>
+
+    <blockquote>
+      ng add @angular/material
+    </blockquote>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Hướng dẫn tạo component và khai báo routers</h2>
+
+  <div class="content">
+    <p>Để tạo một component tự động, ta làm như sau : ** Khuyến khích xài command line vì generate thủ công
+    rất dễ sai và đôi khi xảy ra những sai sót ko đáng có.</p>
+
+    <ol>
+      <li>cd vào folder cài đặt angular, folder chứa file package.json (ở đây là front-end)</li>
+      <li>Dùng command line sau để tạo component một cách tự động:
+        <blockquote>
+          ng g c components/help
+        </blockquote>
+
+        <p>Giải thích  thêm : g - generate, c - component, components/help : tạo component Help ở folder /components</p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="content">
+    <p>Quan trọng nhất của angular là các router. Ta phải khai báo các router này để định tuyến các request tới
+    các Component tương ứng.</p>
+
+    <p>Trong file app.module.ts, ta khai báo routers như sau: Xem image</p>
+  </div>
+</div>
+
+
+
