@@ -1,4 +1,22 @@
 <div class="container">
+  <h2>Hướng dẫn setup git nếu commit ko được</h2>
+  <div class="content">
+    <p>Khi gặp lỗi này: </p>
+    <blockquote>
+      Failed with error: unable to access 'https://github.com/buitahau/demoson.git/': The requested URL returned error: 403
+    </blockquote>
+
+    <p>Ta cần làm như sau: Vào folder .git/config, edit lại cái url như sau :</p>
+
+    <p>url = https://github.com/buitahau/demoson.git</p>
+
+    <p>url = https://bluesky020990:xxxxxxxxxxx@github.com/buitahau/demoson.git</p>
+
+    <p>Vẫn ko được :( Do ko đc share !!</p>
+  </div>
+</div>
+
+<div class="container">
   <h2>Hướng dẫn cài đặt angular</h2>
 
   <div class="content">
@@ -21,6 +39,8 @@
     <blockquote>
       ng add @angular/material
     </blockquote>
+
+
   </div>
 </div>
 
@@ -41,6 +61,8 @@
         <p>Giải thích  thêm : g - generate, c - component, components/help : tạo component Help ở folder /components</p>
       </li>
     </ol>
+
+    <img src="./assets/add_components.JPG" width="989" height="837"/>
   </div>
 
   <div class="content">
@@ -48,8 +70,21 @@
     các Component tương ứng.</p>
 
     <p>Trong file app.module.ts, ta khai báo routers như sau: Xem image</p>
+
+    <img src="./assets/config_routers.jpg" width="1884" height="1453"/>
   </div>
 </div>
 
+<div class="container">
+  <h2>Những lưu ý khi sử dụng các components trong Angular.</h2>
 
+  <div class="content">
+    <p>Nếu một tag chưa được khai báo, thì nó sẽ báo lỗi biên dịch. Ví dụ thêm vào < mat-toolbar>&lt;/> thì ngay lập tức nó báo lỗi.</p>
+    <p>Khi import một module vào, thì phải thêm nó ở trong imports</p>
+
+    <img src="./assets/add_module.JPG" width="1432" height="1467"/>
+
+  </div>
+
+</div>
 

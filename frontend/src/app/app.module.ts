@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import {RouterModule, Routes} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+
+import {MatToolbarModule} from "@angular/material";
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './components/list/list.component';
@@ -29,7 +32,8 @@ const routes : Routes = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
