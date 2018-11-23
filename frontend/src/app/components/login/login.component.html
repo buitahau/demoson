@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="Username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Choose Role">
+        <mat-option value="">Choose</mat-option>
+        <mat-option value="admin">Admin</mat-option>
+        <mat-option value="user">User</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Login</button>
+    <button mat-button class="btn btn-default">Forget the password?</button>
+
+  </mat-card-actions>
+</mat-card>

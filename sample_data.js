@@ -66,7 +66,7 @@ function PrismaSampleData() {
     /*
    * BASE là chỉ loại sơn, trước mắt thì thấy 4 loại sau
    * */
-    var BASE_PA = me.generateBaseEntity("PA", "Pale");
+    var BASE_PA = me.generateBaseEntity("PA", "Pale");        // thung son trang mau xanh nhat
     var BASE_EPA = me.generateBaseEntity("EPA", "Extra Pale");
     var BASE_DE = me.generateBaseEntity("DE", "Deep");
     var BASE_EDE = me.generateBaseEntity("EPA", "Extra Deep");
