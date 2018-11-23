@@ -1,4 +1,4 @@
-<div class="container">
+<section class="container">
   <h2>Hướng dẫn setup git nếu commit ko được</h2>
   <div class="content">
     <p>Khi gặp lỗi này: </p>
@@ -14,9 +14,9 @@
 
     <p>Vẫn ko được :( Do ko đc share !!</p>
   </div>
-</div>
+</section>
 
-<div class="container">
+<section class="container">
   <h2>Hướng dẫn cài đặt angular</h2>
 
   <div class="content">
@@ -41,10 +41,17 @@
     </blockquote>
 
 
-  </div>
-</div>
+    <p>Add luon cai boostrap</p>
 
-<div class="container">
+    <blockquote>
+      npm i -S bootstrap.
+    </blockquote>
+
+    <p>Xem huong dan install boostrap cho angula tai day : <a href="https://medium.com/@tomastrajan/how-to-build-responsive-layouts-with-bootstrap-4-and-angular-6-cfbb108d797b"></a> </p>
+  </div>
+</section>
+
+<section class="container">
   <h2>Hướng dẫn tạo component và khai báo routers</h2>
 
   <div class="content">
@@ -73,9 +80,9 @@
 
     <img src="./assets/config_routers.jpg" width="1884" height="1453"/>
   </div>
-</div>
+</section>
 
-<div class="container">
+<section class="container">
   <h2>Những lưu ý khi sử dụng các components trong Angular.</h2>
 
   <div class="content">
@@ -85,6 +92,30 @@
     <img src="./assets/add_module.JPG" width="1432" height="1467"/>
 
   </div>
+</section>
 
-</div>
+
+<section class="container">
+  <h2>Tạo service trong Angular </h2>
+
+  <div class="content">
+    <p>Việc tạo service cũng như tạo component, tốt nhất nên generate tự động.</p>
+
+    <blockquote>
+      ng g s issue
+    </blockquote>
+
+    <p>Khác với component, sau khi generate xong ta phải khao báo trong declarations của app.module, thì service phải được khai báo trong providers.</p>
+
+    <img src="./assets/add_service.JPG" width="2134" height="1700"/>
+
+    <p>Như vậy, trước mắt ta có các lưu ý sau:</p>
+
+    <ol>
+      <li>Component khai báo trong declarations</li>
+      <li>Service khai báo trong providers</li>
+      <li>Module khai báo trong imports</li>
+    </ol>
+  </div>
+</section>
 
