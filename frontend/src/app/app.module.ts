@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 // IMPORT MATERIAL
 import {MatToolbarModule} from "@angular/material";
 import {MaterialModule} from './material.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -32,7 +33,8 @@ import {NavigationComponent} from "./components/layout/navigation/navigation.com
 import {BreadcrumbComponent} from "./components/layout/breadcrumb/breadcrumb.component";
 import {FooterComponent} from "./components/layout/footer/footer.component";
 
-import {ColorantComponent} from './components/colorant/colorant.component';
+import {ColorantComponent} from './components/setting/colorant/colorant.component';
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {'path': '', redirectTo: 'login', pathMatch: 'full'},
@@ -94,6 +96,11 @@ const routes: Routes = [
     // IMPORT MATERIAL
     MatToolbarModule,
     MaterialModule,
+
+    // import boostrap
+    NgbModule,
+
+    FormsModule
   ],
   providers: [
     IssueService

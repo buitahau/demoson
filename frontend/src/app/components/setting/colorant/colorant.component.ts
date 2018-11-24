@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
-
+import {Sort} from '@angular/material';
 
 export interface ColorantItem {
   code: "string",
@@ -48,8 +47,17 @@ function generateColorantEntity (code, name, density, redV, greenV, blueV, color
   };
 }
 
-const ELEMENT_DATA: ColorantItem[] = getListColorantEntities();
 
+export interface ColorFilter {
+  code : string,
+  name : string
+}
+
+const filterByProp = function (filter : ColorFilter) {
+  return function (item: ColorantItem): boolean {
+    return (filter.code === null || filter.code.trimRight() === "" || item.code === filter.code) && (filter.name === null || filter.name.trimRight() == "" || item.name === filter.name)
+  }
+};
 
 @Component({
   selector: 'app-colorant',
@@ -60,8 +68,41 @@ const ELEMENT_DATA: ColorantItem[] = getListColorantEntities();
 export class ColorantComponent implements OnInit {
   constructor() { }
 
-  ngOnInit() {  }
+  // filter : ColorFilter = null;
+  code : string = null;
+  name : string = null;
 
-  displayedColumns: string[] = ['code', 'name', 'density', 'redV', 'greenV', 'blueV', 'color'];
-  dataSource = ELEMENT_DATA;
+  listItems: ColorantItem[] = getListColorantEntities();
+  sortedData: ColorantItem[];
+
+  ngOnInit() {
+    this.sortedData = this.listItems.slice();
+  }
+
+  filter(){
+    this.sortedData = this.listItems.filter(filterByProp({code: this.code, name : this.name}));
+    // this.sortedData =  this.listItems.filter(item => ((this.filter.code == null || item.code === this.filter.code) || (this.filter.name  == null || item.name == this.filter)));
+  }
+
+  sortData(sort: Sort) {
+    const data = this.listItems.slice();
+    // if (!sort.active || sort.direction === '') {
+    //   this.sortedData = data;
+    //   return;
+    // }
+
+    this.sortedData = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'code': return compare(a.code, b.code, isAsc);
+        case 'name': return compare(a.name, b.name, isAsc);
+        case 'density': return compare(a.density, b.density, isAsc);
+        default: return 0;
+      }
+    });
+
+    function compare(a: string | string, b: string | string, isAsc) {
+      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+    }
+  }
 }
