@@ -20,30 +20,66 @@ import {EditComponent} from './components/edit/edit.component';
 import {HelpComponent} from './components/help/help.component';
 
 import {IssueService} from "./issue.service";
-import {LoginComponent} from './components/login/login.component';
+
+import {LoginComponent} from './components/login-page/login/login.component';
+import {RegisterComponent} from './components/login-page/register/register.component';
+import {ForgotpasswordComponent} from './components/login-page/forgotpassword/forgotpassword.component';
+
+import {DashboardComponent} from "./components/dashboard/dashboard.component";
+
+import {HeaderComponent} from "./components/layout/header/header.component";
+import {NavigationComponent} from "./components/layout/navigation/navigation.component";
+import {BreadcrumbComponent} from "./components/layout/breadcrumb/breadcrumb.component";
+import {FooterComponent} from "./components/layout/footer/footer.component";
+
 import {ColorantComponent} from './components/colorant/colorant.component';
 
 const routes: Routes = [
-  {'path': 'login', component: LoginComponent},
-  {'path': 'create', component: CreateComponent},
-  {'path': 'edit/:id', component: EditComponent},
-  {'path': 'list', component: ListComponent},
-  {'path': 'help', component: HelpComponent},
-  {'path': '', redirectTo: 'list', pathMatch: 'full'},
+  {'path': '', redirectTo: 'login', pathMatch: 'full'},
+  {'path': 'index', component: DashboardComponent},
+  {'path': 'login', component: LoginComponent},       {'path': 'sign-in', component: LoginComponent},
+  {'path': 'register', component: RegisterComponent}, {'path': 'sign-up', component: RegisterComponent},
+  {'path': 'forgot-password', component: ForgotpasswordComponent},
 
-  {'path': 'manager/colorant', component : ColorantComponent}
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      {path: '', redirectTo: 'list', pathMatch: 'full'},
+      {path: 'colorant', component: ColorantComponent},
+      {path: 'help', component: HelpComponent},
+      {path: 'create', component: CreateComponent},
+      {path: 'edit/:id', component: EditComponent},
+      {path: 'list', component: ListComponent},
+    ]
+  }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    // page !!
+    LoginComponent,
+    RegisterComponent,
+    ForgotpasswordComponent,
+
+    // dashboard after login
+    DashboardComponent,
+
     ListComponent,
     CreateComponent,
     EditComponent,
     HelpComponent,
 
-    // page !!
-    LoginComponent,
+
+    // common layout
+    HeaderComponent,
+    NavigationComponent,
+    BreadcrumbComponent,
+    FooterComponent,
+
+
     ColorantComponent,
 
   ],
