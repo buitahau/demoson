@@ -1,8 +1,4 @@
-import {Component, ContentChild, OnInit, ViewChild} from '@angular/core';
-// import {MatFormFieldControl} from "@angular/material";
-// import {MatFormField} from "@angular/material/typings/esm5/form-field";
-
-
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-login',

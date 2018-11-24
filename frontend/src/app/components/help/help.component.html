@@ -34,6 +34,14 @@
 
     <p>--open khai báo tự open cái browser lên để show cái page.</p>
 
+
+    <p>Các npm cần install để làm việc trong project này bao gồm:</p>
+    <ol>
+      <li>material </li>
+      <li>boostrap</li>
+      <li>node sass (để generate scss files)</li>
+    </ol>
+
     <p>Sau đó, ta add material cho cái project này</p>
 
     <blockquote>
@@ -47,7 +55,13 @@
       npm i -S bootstrap.
     </blockquote>
 
-    <p>Xem huong dan install boostrap cho angula tai day : <a href="https://medium.com/@tomastrajan/how-to-build-responsive-layouts-with-bootstrap-4-and-angular-6-cfbb108d797b"></a> </p>
+    <p>Xem hướng dẫn install bootstrap cho angular tai  : <a href="https://medium.com/@tomastrajan/how-to-build-responsive-layouts-with-bootstrap-4-and-angular-6-cfbb108d797b">đây</a> </p>
+
+    <p>Install node sass để generate scss file. Nếu ko cài cái này thì style trong file scss sẽ ko được generate ra đâu</p>
+
+    <blockquote>
+      npm install -g node-sass
+    </blockquote>
   </div>
 </section>
 
@@ -69,7 +83,11 @@
       </li>
     </ol>
 
-    <img src="/assets/help/add_components.JPG" width="989" height="837"/>
+    <img src="../../../assets/help/add_components.JPG" width="989" height="837" class="img-fluid"/>
+
+    <p>Đối với component, luôn có 2 phần, 1 là annotation @component và 2 là export class. 2 Cái này luôn đi với nhau, như hình:</p>
+
+    <img src="../../../assets/help/component_note_1.JPG" width="1492" height="1235" class="img-fluid"/>
   </div>
 
   <div class="content">
@@ -78,7 +96,7 @@
 
     <p>Trong file app.module.ts, ta khai báo routers như sau: Xem image</p>
 
-    <img src="/assets/help/config_routers.jpg" width="1884" height="1453"/>
+    <img src="../../../assets/help/config_routers.jpg" width="1884" height="1453"/>
   </div>
 </section>
 
@@ -89,7 +107,7 @@
     <p>Nếu một tag chưa được khai báo, thì nó sẽ báo lỗi biên dịch. Ví dụ thêm vào < mat-toolbar>&lt;/> thì ngay lập tức nó báo lỗi.</p>
     <p>Khi import một module vào, thì phải thêm nó ở trong imports</p>
 
-    <img src="/assets/help/add_module.JPG" width="1432" height="1467"/>
+    <img src="../../../assets/help/add_module.JPG" width="1432" height="1467" class="img-fluid"/>
 
   </div>
 </section>
@@ -107,7 +125,7 @@
 
     <p>Khác với component, sau khi generate xong ta phải khao báo trong declarations của app.module, thì service phải được khai báo trong providers.</p>
 
-    <img src="/assets/help/add_service.JPG" width="2134" height="1700"/>
+    <img src="../../../assets/help/add_service.JPG" width="2134" height="1700" class="img-fluid"/>
 
     <p>Như vậy, trước mắt ta có các lưu ý sau:</p>
 

@@ -1,5 +1,11 @@
 app-help{
   blockquote{
     border: 1px solid #ccc;
+    padding: 5px;
+  }
+
+  img{
+    max-width: 50% !important;
+    height: auto !important;
   }
 }

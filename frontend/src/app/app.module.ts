@@ -21,6 +21,7 @@ import {HelpComponent} from './components/help/help.component';
 
 import {IssueService} from "./issue.service";
 import {LoginComponent} from './components/login/login.component';
+import {ColorantComponent} from './components/colorant/colorant.component';
 
 const routes: Routes = [
   {'path': 'login', component: LoginComponent},
@@ -28,7 +29,9 @@ const routes: Routes = [
   {'path': 'edit/:id', component: EditComponent},
   {'path': 'list', component: ListComponent},
   {'path': 'help', component: HelpComponent},
-  {'path': '', redirectTo: 'list', pathMatch: 'full'}
+  {'path': '', redirectTo: 'list', pathMatch: 'full'},
+
+  {'path': 'manager/colorant', component : ColorantComponent}
 ];
 
 @NgModule({
@@ -38,7 +41,11 @@ const routes: Routes = [
     CreateComponent,
     EditComponent,
     HelpComponent,
-    LoginComponent
+
+    // page !!
+    LoginComponent,
+    ColorantComponent,
+
   ],
   imports: [
     BrowserModule,
