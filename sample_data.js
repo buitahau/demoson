@@ -143,6 +143,34 @@ function PrismaSampleData() {
     * Cái table này được generate từ cái table product trên kia, Nó chỉ là show ra cho dễ chọn thôi chứ cũng ko có gì cả.
     * */
 
+    // PA	A	1 lt		10	80	8.711E+11
+    // PA	A	2.5 LT		25	90	8.711E+11
+    // PA	B	1 lt		10	80	8.711E+11
+    // PA	B	3 lt		30	90	8.711E+11
+    // PA	C3	1 lt		10	80	8.711E+11
+    // PA	C3	3 lt		30	90	8.711E+11
+    // PA	D	1 lt		10	80	8.711E+11
+    // PA	D	2.5 LT		25	90	8.711E+11
+
+    var BA_A_10 = me.generatePrefillCanEntity(BASE_PA, PRODUCT_A, 1.0, 80, 10, 8.711E+11);
+    var BA_A_25 = me.generatePrefillCanEntity(BASE_PA, PRODUCT_A, 2.5, 80, 25, 8.711E+11);
+    var BA_B_10 = me.generatePrefillCanEntity(BASE_PA, PRODUCT_B, 1.0, 80, 25, 8.711E+11);
+    var BA_B_30 = me.generatePrefillCanEntity(BASE_PA, PRODUCT_B, 3.0, 80, 25, 8.711E+11);
+
+    this.getListPrefillCanEntity = function () {
+        return [BA_A_10, BA_A_25, BA_B_10, BA_B_30];
+    };
+
+    this.generatePrefillCanEntity = function (base, product, can, volume, price, barCode) {
+        return {
+            base: base,
+            product: product,
+            can: can, volume,
+            price: price,
+            barCode: barCode
+        }
+    };
+
     /*
     * Formula : Công thức pha màu.
     * */
@@ -174,7 +202,4 @@ function PrismaSampleData() {
             createBy : createBy // null - from system, userId
         }
     }
-
-
-
 }
