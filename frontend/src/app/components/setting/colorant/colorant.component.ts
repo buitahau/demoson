@@ -55,7 +55,7 @@ export interface ColorFilter {
 
 const filterByProp = function (filter : ColorFilter) {
   return function (item: ColorantItem): boolean {
-    return (filter.code === null || filter.code.trimRight() === "" || item.code === filter.code) && (filter.name === null || filter.name.trimRight() == "" || item.name === filter.name)
+    return (filter.code === null || filter.code === "" || item.code === filter.code) && (filter.name === null || filter.name == "" || item.name === filter.name)
   }
 };
 

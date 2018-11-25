@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IssueService} from "../../issue.service";
+import {IssueService} from "../../../services/issues/issue.service";
 
 @Component({
   selector: 'app-list',

@@ -15,12 +15,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import {AppComponent} from './app.component';
-import {ListComponent} from './components/list/list.component';
-import {CreateComponent} from './components/create/create.component';
-import {EditComponent} from './components/edit/edit.component';
+import {ListComponent} from './components/issue/list/list.component';
+import {CreateComponent} from './components/issue/create/create.component';
+import {EditComponent} from './components/issue/edit/edit.component';
 import {HelpComponent} from './components/help/help.component';
 
-import {IssueService} from "./issue.service";
+import {IssueService} from "./services/issues/issue.service";
 
 import {LoginComponent} from './components/login-page/login/login.component';
 import {RegisterComponent} from './components/login-page/register/register.component';
