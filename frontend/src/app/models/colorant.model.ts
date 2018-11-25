@@ -8,3 +8,19 @@ export interface ColorantDTO {
   blueV: number,
   color: string
 }
+
+export interface BaseDTO{
+  baseId : number,
+  type : string,
+  name : string,
+  createdBy : number | null;
+}
+
+
+export interface CollectionDTO {
+  collectionId : number,
+  code : string,
+  name : string,
+  filterGroup : string,
+  createdBy : number | null
+}

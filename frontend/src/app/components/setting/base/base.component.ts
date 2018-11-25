@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BaseDTO} from "../../../models/base.model";
+import {BaseDTO} from "../../../models/colorant.model";
 import {Sort} from "@angular/material";
 
 let BASE_PA = generateBaseEntity(1, "PA", "Pale", null);
