@@ -18,7 +18,7 @@ export class UserService {
   }
 
 
-  login(userName : string, password : string) : boolean{
+  login(userName : string, password : string) : UserDTO{
     if(userName === "admin" && password === "123456"){
       this.userDTO = {userName : "admin", password: "123456"};
       this.isLogin = true;

@@ -1,0 +1,31 @@
+<div class="block-header">
+  <h1>Base Manager</h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        List Base type
+      </div>
+
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" matSort (matSortChange)="sortData($event)">
+            <tr>
+              <th mat-sort-header="type">Type</th>
+              <th mat-sort-header="name">Name</th>
+              <th mat-sort-header="createdBy">CreatedBy</th>
+            </tr>
+
+            <tr *ngFor="let base of sortedData">
+              <td>{{base.type}}</td>
+              <td>{{base.name}}</td>
+              <td>{{base.createdBy}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

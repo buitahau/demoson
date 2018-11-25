@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatToolbarModule} from "@angular/material";
 import {MaterialModule} from './material.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -33,8 +34,15 @@ import {NavigationComponent} from "./components/layout/navigation/navigation.com
 import {BreadcrumbComponent} from "./components/layout/breadcrumb/breadcrumb.component";
 import {FooterComponent} from "./components/layout/footer/footer.component";
 
+// setting
 import {ColorantComponent} from './components/setting/colorant/colorant.component';
-import {FormsModule} from "@angular/forms";
+import {BaseComponent} from "./components/setting/base/base.component";
+
+
+
+
+// help page !!
+import {LanguageComponent} from "./components/help/language/language.component";
 
 const routes: Routes = [
   {'path': '', redirectTo: 'login', pathMatch: 'full'},
@@ -49,7 +57,9 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'list', pathMatch: 'full'},
       {path: 'colorant', component: ColorantComponent},
+      {path: 'base', component: BaseComponent},
       {path: 'help', component: HelpComponent},
+      {path: 'help/language', component: LanguageComponent},
       {path: 'create', component: CreateComponent},
       {path: 'edit/:id', component: EditComponent},
       {path: 'list', component: ListComponent},
@@ -72,7 +82,10 @@ const routes: Routes = [
     ListComponent,
     CreateComponent,
     EditComponent,
+
+    // help page
     HelpComponent,
+    LanguageComponent,
 
 
     // common layout
@@ -83,8 +96,10 @@ const routes: Routes = [
 
 
     ColorantComponent,
+    BaseComponent,
 
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
