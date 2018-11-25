@@ -112,12 +112,12 @@ function PrismaSampleData() {
     * Mỗi sản phẩm đều thuộc 1 product.
     * */
                                                                     // 1 - n       1 - n
-    var PRODUCT_A = me.generateProductEntity("A", "Egg Shell",    [1, 2.5, 3], [1, 1, 1,   1], FILTER_GROUP_A);
-    var PRODUCT_B = me.generateProductEntity("B", "Primer",       [1, 3],      [1, 1, 0.8, 1], FILTER_GROUP_B);
-    var PRODUCT_C3 = me.generateProductEntity("C3", "Floor Paint", [1, 3],      [1, 1, 1,   1], FILTER_GROUP_B);
-    var PRODUCT_D = me.generateProductEntity("D", "Nautic Paint", [1, 2.5],    [1, 1, 1,   1], FILTER_GROUP_A);
-    var PRODUCT_E = me.generateProductEntity("E", "Gloss",        [1, 2.5],    [1, 1, 1,   1], FILTER_GROUP_C3);
-    var PRODUCT_S = me.generateProductEntity("S", "ko biet cai gi",  [1, 2.5],    [1, 1, 1,   1], FILTER_GROUP_C3);
+    var PRODUCT_A  = me.generateProductEntity("A", "Egg Shell",      [1, 2.5, 3], [1, 1, 1,   1], FILTER_GROUP_A);
+    var PRODUCT_B  = me.generateProductEntity("B", "Primer",         [1, 3],      [1, 1, 0.8, 1], FILTER_GROUP_B);
+    var PRODUCT_C3 = me.generateProductEntity("C3", "Floor Paint",   [1, 3],      [1, 1, 1,   1], FILTER_GROUP_B);
+    var PRODUCT_D  = me.generateProductEntity("D", "Nautic Paint",   [1, 2.5],    [1, 1, 1,   1], FILTER_GROUP_A);
+    var PRODUCT_E  = me.generateProductEntity("E", "Gloss",          [1, 2.5],    [1, 1, 1,   1], FILTER_GROUP_C3);
+    var PRODUCT_S  = me.generateProductEntity("S", "ko biet cai gi", [1, 2.5],    [1, 1, 1,   1], FILTER_GROUP_C3);
 
 
     this.getListProductEntities = function () {
