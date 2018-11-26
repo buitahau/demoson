@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/internal/Observable";
-import 'rxjs/add/observable/of';
+// import 'rxjs/add/observable/of';
 
 export interface IssueDTO{
   title: string,
@@ -28,9 +28,9 @@ export class IssueService {
     this.listIssues.push(this.generateIssue("Title 3", "response 3", "description 3", "severity", "status 3"));
     this.listIssues.push(this.generateIssue("Title 4", "response 4", "description 4", "severity", "status 3"));
 
-    return Observable.of(this.listIssues);
+    // return Observable.of(this.listIssues);
 
-    // return this.http.get(`${this.uri}`)
+    return this.http.get(`${this.uri}`)
   }
 
   getIssueById(id){
