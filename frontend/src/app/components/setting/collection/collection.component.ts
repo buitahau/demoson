@@ -43,9 +43,6 @@ export class CollectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  ngOnInit() {
     this.sortedData = this.listItems.slice();
   }
 
