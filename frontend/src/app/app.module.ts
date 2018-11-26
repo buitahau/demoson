@@ -38,6 +38,7 @@ import {FooterComponent} from "./components/layout/footer/footer.component";
 import {ColorantComponent} from './components/setting/colorant/colorant.component';
 import {BaseComponent} from "./components/setting/base/base.component";
 import {CollectionComponent} from "./components/setting/collection/collection.component";
+import {ProductComponent} from "./components/setting/product/product.component";
 
 
 // help page !!
@@ -58,6 +59,7 @@ const routes: Routes = [
       {path: 'colorant', component: ColorantComponent},
       {path: 'base', component: BaseComponent},
       {path: 'collection', component: CollectionComponent},
+      {path: 'product', component: ProductComponent},
 
       {path: 'help', component: HelpComponent},
       {path: 'help/language', component: LanguageComponent},
@@ -98,7 +100,8 @@ const routes: Routes = [
 
     ColorantComponent,
     BaseComponent,
-    CollectionComponent
+    CollectionComponent,
+    ProductComponent
 
   ],
 

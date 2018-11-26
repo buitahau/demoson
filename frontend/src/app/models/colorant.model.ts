@@ -24,3 +24,11 @@ export interface CollectionDTO {
   filterGroup : string,
   createdBy : number | null
 }
+
+export interface ProductDTO {
+  productId : number,
+  productCode : string,
+  productName : string,
+  createdDate : date,
+  createdBy : number | null,
+}
