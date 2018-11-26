@@ -19,10 +19,11 @@ export interface BaseDTO{
 
 export interface CollectionDTO {
   collectionId : number,
-  code : string,
-  name : string,
-  filterGroup : string,
-  createdBy : number | null
+  collectionCode : string,
+  collectionName : string,
+  description : string,
+  createdDate : string,
+  createBy : number | null
 }
 
 export interface ProductDTO {
@@ -32,3 +33,46 @@ export interface ProductDTO {
   createdDate : date,
   createdBy : number | null,
 }
+
+export interface ProductBaseDTO{
+  productBaseId : number,
+  product : ProductDTO,
+  base : BaseDTO,
+  density : number,
+  rbgHex : string,
+  createdDate:  string,
+  createdBy : number,
+}
+
+export interface ProductBaseCanDTO{
+  productBaseCanId : number,
+  productBase : ProductBaseDTO,
+  can : number,
+  unit : string,
+  pricePerCan : number,
+  barCode : string,
+  percentage : number,
+}
+
+export interface FormulaDTO {
+  formulaId : string,
+  formulaCode : string,
+  formulaName : string,
+  collection : CollectionDTO,
+  createdDate : string,
+  createdBy : number | null
+}
+
+export interface FormulaColourant {
+  formulaColourantId: number,
+  formula: FormulaDTO,
+  colorant: ColorantDTO,
+  quantity: number
+}
+
+export interface FormulaProductBase{
+  formulaProductBaseId : number,
+  formula : FormulaDTO,
+  productBase : ProductBaseDTO,
+}
+

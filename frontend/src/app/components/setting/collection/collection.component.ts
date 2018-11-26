@@ -3,26 +3,27 @@ import {CollectionDTO, ColorantDTO} from "../../../models/colorant.model";
 import {Sort} from "@angular/material";
 
 
-function generateCollectionEntity (collectionId: number, code : string, name: string, filterGroup : string, createdBy : number | null) : CollectionDTO {
+function generateCollectionEntity (collectionId: number, collectionCode : string, collectionName: string, description : string, createdDate: string, createBy : number | null) : CollectionDTO {
   return {
     collectionId : collectionId,
-    code : code,
-    name : name,
-    filterGroup : filterGroup,
-    createdBy : createdBy
+    collectionCode : collectionCode,
+    collectionName : collectionName,
+    description : description,
+    createdDate : createdDate,
+    createBy : createBy | null
   }
 }
 
 function getListCollectionEntities() {
   return [
-    generateCollectionEntity(1, "House", "House", "A", null),
-    generateCollectionEntity(2, "NCS" , "NCS", "B" ,null),
-    generateCollectionEntity(3, "RAL" , "RAL", "A" , null),
-    generateCollectionEntity(4, "Special", "Special", "B", null),
-    generateCollectionEntity(5, "Sports" , "Sports", "A", null),
-    generateCollectionEntity(6, "Art" , "Art", "B" , null),
-    generateCollectionEntity(7, "Music" , "Music", "A", null),
-    generateCollectionEntity(8, "Galaxy" , "Galaxy", "B", null)
+    generateCollectionEntity(1, "House", "House", "House", "", null),
+    generateCollectionEntity(2, "NCS" , "NCS", "NSC", "" ,null),
+    generateCollectionEntity(3, "RAL" , "RAL", "RAL" , "",null),
+    generateCollectionEntity(4, "Special", "Special", "Special", "", null),
+    generateCollectionEntity(5, "Sports" , "Sports", "Sports", "",null),
+    generateCollectionEntity(6, "Art" , "Art", "Art", "", null),
+    generateCollectionEntity(7, "Music" , "Music", "Music", "",null),
+    generateCollectionEntity(8, "Galaxy" , "Galaxy", "Galaxy", "",null)
   ];
 }
 
@@ -34,8 +35,8 @@ function getListCollectionEntities() {
 export class CollectionComponent implements OnInit {
 
   // filter : ColorFilter = null;
-  code : string = null;
-  name : string = null;
+  collectionCode : string = null;
+  collectionName : string = null;
 
   listItems: CollectionDTO[] = getListCollectionEntities();
   sortedData: CollectionDTO[];
@@ -61,9 +62,8 @@ export class CollectionComponent implements OnInit {
     this.sortedData = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'code': return compare(a.code, b.code, isAsc);
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'filterGroup': return compare(a.filterGroup, b.filterGroup, isAsc);
+        case 'code': return compare(a.collectionCode, b.collectionCode, isAsc);
+        case 'collectionName': return compare(a.collectionName, b.collectionName, isAsc);
         default: return 0;
       }
     });

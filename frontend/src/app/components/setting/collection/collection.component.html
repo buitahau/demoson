@@ -9,17 +9,19 @@
         <div class="table-responsive">
           <table class="table table-bordered" matSort (matSortChange)="sortData($event)">
             <tr>
-              <th mat-sort-header="code">Code</th>
-              <th mat-sort-header="name">Name</th>
-              <th mat-sort-header="filterGroup">Filter Group</th>
+              <th mat-sort-header="collectionCode">collectionCode</th>
+              <th mat-sort-header="collectionName">collectionName</th>
+              <th mat-sort-header="description">description</th>
+              <th mat-sort-header="createdDate">createdDate</th>
               <th mat-sort-header="createdBy">Created By</th>
             </tr>
 
             <tr *ngFor="let item of sortedData">
-              <td>{{item.code}}</td>
-              <td>{{item.name}}</td>
-              <td>{{item.filterGroup}}</td>
-              <td>{{item.createdBy}}</td>
+              <td>{{item.collectionCode}}</td>
+              <td>{{item.collectionName}}</td>
+              <td>{{item.description}}</td>
+              <td>{{item.createdDate}}</td>
+              <td>{{item.createBy}}
             </tr>
           </table>
         </div>
