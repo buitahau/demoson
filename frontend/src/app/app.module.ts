@@ -22,6 +22,9 @@ import {EditComponent} from './components/issue/edit/edit.component';
 import {HelpComponent} from './components/help/help.component';
 
 import {IssueService} from "./services/issues/issue.service";
+import {ColorantService} from "./services/colorant/colorant.service";
+import {ProductService} from "./services/product/product.service";
+import {FormulaService} from "./services/formula/formula.service";
 
 import {LoginComponent} from './components/login-page/login/login.component';
 import {RegisterComponent} from './components/login-page/register/register.component';
@@ -38,11 +41,14 @@ import {FooterComponent} from "./components/layout/footer/footer.component";
 import {ColorantComponent} from './components/setting/colorant/colorant.component';
 import {BaseComponent} from "./components/setting/base/base.component";
 import {CollectionComponent} from "./components/setting/collection/collection.component";
-import {ProductComponent} from "./components/setting/product/product.component";
+import {ProductComponent} from "./components/setting/product/product.component"
 
+// formula
+import {FormulaComponent} from "./components/formula/formula/formula.component";
 
 // help page !!
 import {LanguageComponent} from "./components/help/language/language.component";
+
 
 const routes: Routes = [
   {'path': '', redirectTo: 'login', pathMatch: 'full'},
@@ -60,6 +66,9 @@ const routes: Routes = [
       {path: 'base', component: BaseComponent},
       {path: 'collection', component: CollectionComponent},
       {path: 'product', component: ProductComponent},
+
+
+      {path: 'formula', component: FormulaComponent},
 
       {path: 'help', component: HelpComponent},
       {path: 'help/language', component: LanguageComponent},
@@ -101,7 +110,10 @@ const routes: Routes = [
     ColorantComponent,
     BaseComponent,
     CollectionComponent,
-    ProductComponent
+    ProductComponent,
+
+    // formula component
+    FormulaComponent,
 
   ],
 
@@ -123,7 +135,10 @@ const routes: Routes = [
     FormsModule
   ],
   providers: [
-    IssueService
+    IssueService,
+    ColorantService,
+    ProductService,
+    FormulaService
   ],
   bootstrap: [AppComponent]
 })

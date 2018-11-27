@@ -60,12 +60,12 @@ export interface FormulaDTO {
   formulaName : string,
   collection : CollectionDTO,
   createdDate : string,
-  createdBy : number | null
+  createdBy : number | null,
+  listProduct : ProductDTO[],
+  listColorant : FormulaColourant[]
 }
 
 export interface FormulaColourant {
-  formulaColourantId: number,
-  formula: FormulaDTO,
   colorant: ColorantDTO,
   quantity: number
 }

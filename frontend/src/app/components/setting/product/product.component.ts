@@ -3,31 +3,6 @@ import {ProductDTO} from "../../../models/colorant.model";
 import {Sort} from "@angular/material";
 
 
-function getListProductEntities() : ProductDTO[]{
-  return [
-    generateProductEntity(1, "A", "Egg Shell", "", null),
-    generateProductEntity(2, "B", "Primer", "", null),
-    generateProductEntity(3, "C3", "Floor Paint", "", null),
-    generateProductEntity(4, "D", "Nautic Paint", "", null),
-    generateProductEntity(5, "E", "Gloss", "", null),
-  ]
-}
-
-function generateProductEntity ( productId : number,
-                                 productCode : string,
-                                 productName : string,
-                                 createdDate : string,
-                                 createdBy : number | null) : ProductDTO{
-  return {
-    productId : productId,
-    productCode : productCode,
-    productName : productName,
-    createdDate : createdDate,
-    createdBy : createdBy,
-  }
-}
-
-
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -38,12 +13,12 @@ export class ProductComponent implements OnInit {
   productCode : string = null;
   productName : string = null;
 
-  listItems : ProductDTO[] = getListProductEntities();
+  listItems : ProductDTO[] = null;
   sortedData : ProductDTO[] = null;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit( ) {
     this.sortedData = this.listItems;
   }
 
