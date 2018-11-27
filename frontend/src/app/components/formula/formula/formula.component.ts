@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CollectionDTO, FormulaDTO, ProductDTO} from "../../../models/colorant.model";
+import {FormulaService} from "../../../services/formula/formula.service";
 
 @Component({
   selector: 'app-formula',
@@ -18,9 +19,22 @@ export class FormulaComponent implements OnInit {
   listCollections : CollectionDTO[] = null;
   listProducts : ProductDTO[] = null;
 
-  constructor() { }
+  constructor(private formulaService : FormulaService) { }
+
 
   ngOnInit() {
+    this.listItems = this.formulaService.getListItems();
   }
 
+  filterFormula (){
+    let result  = this.formulaService.filter(this.colorName, this.collection, this.product);
+    this.listColors = result.listColors;
+    this.listCollections = result.listCollections;
+    this.listProducts = result.listProducts;
+    this.listItems = result.listFormula;
+  }
+
+  sortData(){
+    this.filterFormula();
+  }
 }

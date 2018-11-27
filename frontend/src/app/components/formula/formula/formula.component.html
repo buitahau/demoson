@@ -37,7 +37,7 @@
 
       <div class="card-footer">
         <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="filter()">Search</button>
+          <button mat-raised-button color="primary" (click)="filterFormula()">Search</button>
           <button mat-button class="btn btn-default">Reset</button>
         </mat-card-actions>
       </div>
@@ -55,25 +55,21 @@
 
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered" matSort (matSortChange)="sortData($event)">
+          <table class="table table-bordered" matSort (matSortChange)="sortData($event)" > <!---->
             <tr>
-              <th mat-sort-header="code">Code</th>
-              <th mat-sort-header="name">Name</th>
-              <th mat-sort-header="density">Density</th>
-              <th mat-sort-header="redV">Red</th>
-              <th mat-sort-header="greenV">Green</th>
-              <th mat-sort-header="blueV">Blue</th>
-              <th mat-sort-header="color">Color</th>
+              <th mat-sort-header="formulaCode">Formula Code</th>
+              <th mat-sort-header="formulaName">Formula Name</th>
+              <th mat-sort-header="collection">collection</th>
+              <th mat-sort-header="createdDate">createdDate</th>
+              <th mat-sort-header="createdBy">createdBy</th>
             </tr>
 
-            <tr *ngFor="let colorant of sortedData">
-              <td>{{colorant.code}}</td>
-              <td>{{colorant.name}}</td>
-              <td>{{colorant.density}}</td>
-              <td>{{colorant.redV}}</td>
-              <td>{{colorant.greenV}}</td>
-              <td>{{colorant.blueV}}</td>
-              <td>{{colorant.color}}</td>
+            <tr *ngFor="let formula of listItems">
+              <td>{{formula.formulaCode}}</td>
+              <td>{{formula.formulaName}}</td>
+              <td>{{formula.collection}}</td>
+              <td>{{formula.createdDate}}</td>
+              <td>{{formula.createdBy}}</td>
             </tr>
           </table>
         </div>

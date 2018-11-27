@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {CollectionDTO, FormulaDTO, ProductDTO} from "../../models/colorant.model";
+import {CollectionDTO, ColorantDTO, FormulaDTO, ProductDTO} from "../../models/colorant.model";
 
 import {A, B, C3, D, s} from "../product/product.service";
 import {C_A, C_B, C_C, C_D, C_E, C_F, C_G, C_H, C_I, C_J, C_K, C_L, C_M, C_N, C_O, C_P, C_} from '../colorant/colorant.service';
 
 
-function getListFormulaEntities(){
+function getListFormulaEntities() : FormulaDTO[]{
   return [
     generateFormula('1', 'PW5' , 'PW5', 'House', null, null, [A,B,C3],[{colorant: C_A,quantity:2},{colorant: C_B,quantity:4.5},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0}]),
     generateFormula('2', 'NVB1' , 'NVB1', 'House', null, null, [D,s],[{colorant: C_C,quantity:4},{colorant: C_D,quantity:5},{colorant: C_E,quantity:4},{colorant: C_F,quantity:5.5},{colorant: C_G,quantity:2},{colorant: C_H,quantity:2}]),
@@ -73,6 +73,17 @@ function getListFormulaEntities(){
   ];
 }
 
+// export interface FormulaObject{
+//   formulaId : number | string,
+//   formulaCode : string,
+//   formulaName : string,
+//   collection : string,
+//   createdDate : string,
+//   createdBy : string,
+//   listProduct : ProductDTO[],
+//   listColorant : ColorantDTO[]
+// }
+
 function generateFormula(formulaId, formulaCode, formulaName, collection, createdDate, createdBy, listProduct, listColorant) : FormulaDTO{
   return {
     formulaId : formulaId,
@@ -90,13 +101,75 @@ function generateFormula(formulaId, formulaCode, formulaName, collection, create
   providedIn: 'root'
 })
 
-
+export interface FormulaFilterResult {
+  listColors : any,
+  listCollections : any,
+  listProducts : any,
+  listFormula : any
+}
 
 export class FormulaService {
-  listItem = getListFormulaEntities();
+  listItems : FormulaDTO[] = getListFormulaEntities();
 
   constructor() {
 
+  }
+
+  getListItems (){
+    return this.listItems;
+  }
+
+  filter(colorName: string, collection : string, product : string) : FormulaFilterResult {
+    let listColors = [];
+    let listCollections = [];
+    let listProducts = [];
+    let listFormula = [];
+
+    for(let formula : FormulaDTO of this.listItems){
+      let isMatchingColor = false;
+      let isMatchingCollection = false;
+      let isMatchingProduct = false;
+      let targetProduct = null;
+
+
+      if(colorName == null || colorName == "" || formula.formulaCode == colorName){
+        isMatchingColor = true;
+      }
+
+      if(collection == null || collection == "" || formula.collection == collection){
+        isMatchingCollection = true;
+      }
+
+      if(product == null || product == ""){
+        isMatchingProduct = true;
+      } else {
+        for(let _product : ProductDTO of formula.listProduct) {
+          if (_product.productCode == product || _product.productName == product) {
+            isMatchingProduct = true;
+            targetProduct = _product;
+          }
+        }
+      }
+
+      if(isMatchingCollection && isMatchingProduct && isMatchingColor){
+        listColors.push(formula.formulaCode);
+        listCollections.push(formula.collection);
+        if(targetProduct != null){
+          listProducts.push(targetProduct);
+        } else {
+          listProducts = listProducts.concat(formula.listProduct);
+        }
+
+        listFormula.push(formula);
+      }
+    }
+
+    return {
+      listColors : listColors,
+      listCollections : listCollections,
+      listProducts : listProducts,
+      listFormula : listFormula
+    }
   }
 
   getFormulaColor (): string[] | null{

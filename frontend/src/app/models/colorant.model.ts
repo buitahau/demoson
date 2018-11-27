@@ -58,9 +58,11 @@ export interface FormulaDTO {
   formulaId : string,
   formulaCode : string,
   formulaName : string,
-  collection : CollectionDTO,
+  collection : string,
   createdDate : string,
   createdBy : number | null,
+
+  // 1 - n relation ship
   listProduct : ProductDTO[],
   listColorant : FormulaColourant[]
 }
