@@ -12,9 +12,9 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     // this.issueService.getIssues().subscribe(response => this.videos = response);
-    this.issueService.getIssues().subscribe(issues => {
-      console.log(issues);
-    });
+    // this.issueService.getIssues().subscribe(issues => {
+    //   console.log(issues);
+    // });
   }
 
 }

@@ -10,7 +10,7 @@ function generateCollectionEntity (collectionId: number, collectionCode : string
     collectionName : collectionName,
     description : description,
     createdDate : createdDate,
-    createBy : createBy | null
+    createBy : createBy
   }
 }
 

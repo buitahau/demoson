@@ -30,7 +30,7 @@ export interface ProductDTO {
   productId : number,
   productCode : string,
   productName : string,
-  createdDate : date,
+  createdDate : string,
   createdBy : number | null,
 }
 

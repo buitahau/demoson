@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ColorantDTO, ProductDTO} from "../../../models/colorant.model";
+import {ProductDTO} from "../../../models/colorant.model";
 import {Sort} from "@angular/material";
-import {ColorFilter} from "../colorant/colorant.component";
 
 
 function getListProductEntities() : ProductDTO[]{
@@ -17,8 +16,8 @@ function getListProductEntities() : ProductDTO[]{
 function generateProductEntity ( productId : number,
                                  productCode : string,
                                  productName : string,
-                                 createdDate : date,
-                                 createdBy : number | null,) : ProductDTO{
+                                 createdDate : string,
+                                 createdBy : number | null) : ProductDTO{
   return {
     productId : productId,
     productCode : productCode,
@@ -66,7 +65,7 @@ export class ProductComponent implements OnInit {
       switch (sort.active) {
         case 'productCode': return compare(a.productCode, b.productCode, isAsc);
         case 'productName': return compare(a.productName, b.productName, isAsc);
-        case 'createdDate': return compare(a.createdDate, b.createdDate, isAsc)
+        case 'createdDate': return compare(a.createdDate, b.createdDate, isAsc);
         case 'createdBy': return compare(a.createdBy, b.createdBy, isAsc);
         default: return 0;
       }
