@@ -66,7 +66,7 @@ export class ColorantService {
       switch (sort.active) {
         case 'code': return compare(a.code, b.code, isAsc);
         case 'name': return compare(a.name, b.name, isAsc);
-        case 'density': return compare(a.density, b.density, isAsc);
+        // case 'density': return compare(a.density, b.density, isAsc);
         default: return 0;
       }
     });

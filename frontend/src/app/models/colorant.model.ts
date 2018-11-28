@@ -1,3 +1,7 @@
+export interface Select2Item {
+  id : any,
+  text: any
+}
 export interface ColorantDTO {
   colorantId : number,
   code: string,
@@ -6,7 +10,7 @@ export interface ColorantDTO {
   redV: number,
   greenV: number,
   blueV: number,
-  color: string
+  color: string | null
 }
 
 export interface BaseDTO{
@@ -58,7 +62,7 @@ export interface FormulaDTO {
   formulaId : string,
   formulaCode : string,
   formulaName : string,
-  collection : string,
+  collection : CollectionDTO,
   createdDate : string,
   createdBy : number | null,
 

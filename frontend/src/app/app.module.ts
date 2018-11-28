@@ -12,7 +12,7 @@ import {MatToolbarModule} from "@angular/material";
 import {MaterialModule} from './material.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from "@angular/forms";
-
+import {NgSelect2Module} from "ng-select2";
 
 
 import {AppComponent} from './app.component';
@@ -24,6 +24,7 @@ import {HelpComponent} from './components/help/help.component';
 import {IssueService} from "./services/issues/issue.service";
 import {ColorantService} from "./services/colorant/colorant.service";
 import {ProductService} from "./services/product/product.service";
+import {CollectionService} from "./services/collection/collection.service";
 import {FormulaService} from "./services/formula/formula.service";
 
 import {LoginComponent} from './components/login-page/login/login.component';
@@ -131,6 +132,7 @@ const routes: Routes = [
 
     // import boostrap
     NgbModule,
+    NgSelect2Module,
 
     FormsModule
   ],
@@ -138,6 +140,7 @@ const routes: Routes = [
     IssueService,
     ColorantService,
     ProductService,
+    CollectionService,
     FormulaService
   ],
   bootstrap: [AppComponent]

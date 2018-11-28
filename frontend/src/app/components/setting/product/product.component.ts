@@ -40,8 +40,8 @@ export class ProductComponent implements OnInit {
       switch (sort.active) {
         case 'productCode': return compare(a.productCode, b.productCode, isAsc);
         case 'productName': return compare(a.productName, b.productName, isAsc);
-        case 'createdDate': return compare(a.createdDate, b.createdDate, isAsc);
-        case 'createdBy': return compare(a.createdBy, b.createdBy, isAsc);
+        // case 'createdDate': return compare(a.createdDate, b.createdDate, isAsc);
+        // case 'createdBy': return compare(a.createdBy, b.createdBy, isAsc);
         default: return 0;
       }
     });

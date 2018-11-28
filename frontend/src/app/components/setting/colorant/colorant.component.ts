@@ -20,8 +20,6 @@ export class ColorantComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("..........................");
-    console.log(this.colorantService.search(this.code, this.name));
     this.sortedData = this.colorantService.search(this.code, this.name);
   }
 

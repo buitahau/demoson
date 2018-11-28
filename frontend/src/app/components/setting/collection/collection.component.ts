@@ -1,31 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {CollectionDTO, ColorantDTO} from "../../../models/colorant.model";
+import {CollectionDTO} from "../../../models/colorant.model";
 import {Sort} from "@angular/material";
+import {CollectionService} from "../../../services/collection/collection.service";
 
 
-function generateCollectionEntity (collectionId: number, collectionCode : string, collectionName: string, description : string, createdDate: string, createBy : number | null) : CollectionDTO {
-  return {
-    collectionId : collectionId,
-    collectionCode : collectionCode,
-    collectionName : collectionName,
-    description : description,
-    createdDate : createdDate,
-    createBy : createBy
-  }
-}
 
-function getListCollectionEntities() {
-  return [
-    generateCollectionEntity(1, "House", "House", "House", "", null),
-    generateCollectionEntity(2, "NCS" , "NCS", "NSC", "" ,null),
-    generateCollectionEntity(3, "RAL" , "RAL", "RAL" , "",null),
-    generateCollectionEntity(4, "Special", "Special", "Special", "", null),
-    generateCollectionEntity(5, "Sports" , "Sports", "Sports", "",null),
-    generateCollectionEntity(6, "Art" , "Art", "Art", "", null),
-    generateCollectionEntity(7, "Music" , "Music", "Music", "",null),
-    generateCollectionEntity(8, "Galaxy" , "Galaxy", "Galaxy", "",null)
-  ];
-}
 
 @Component({
   selector: 'app-collection',
@@ -38,12 +17,15 @@ export class CollectionComponent implements OnInit {
   collectionCode : string = null;
   collectionName : string = null;
 
-  listItems: CollectionDTO[] = getListCollectionEntities();
-  sortedData: CollectionDTO[];
+  listItems: CollectionDTO[] = null;
+  sortedData: CollectionDTO[] = null;
 
-  constructor() { }
+  constructor(private collectionService: CollectionService) {
+
+  }
 
   ngOnInit() {
+    this.listItems = this.collectionService.getListItems();
     this.sortedData = this.listItems.slice();
   }
 

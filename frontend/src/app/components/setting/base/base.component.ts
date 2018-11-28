@@ -48,7 +48,7 @@ export class BaseComponent implements OnInit {
       switch (sort.active) {
         case 'type': return compare(a.type, b.type, isAsc);
         case 'name': return compare(a.name, b.name, isAsc);
-        case 'createdBy': return compare(a.createdBy, b.createdBy, isAsc);
+        // case 'createdBy': return compare(a.createdBy, b.createdBy, isAsc);
         default: return 0;
       }
     });

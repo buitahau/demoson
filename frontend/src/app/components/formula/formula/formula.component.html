@@ -9,28 +9,33 @@
         Filter
       </div>
 
-      <!--color : string = null;-->
-      <!--collection : string = null;-->
-      <!--product : string = null;-->
-      <!---->
       <div class="card-body">
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <mat-form-field>
-              <input matInput placeholder="colorName" [(ngModel)]="colorName">
-            </mat-form-field>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Select Color</label>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ng-select2 class="select-color-field" [(ngModel)]="colorName" [data]="listColors"  [value]="colorName" [placeholder]="'Choose Color'"  [width]="400" (valueChanged)="changedColor($event)"></ng-select2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Select Collection</label>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <mat-form-field>
-              <input matInput placeholder="collection" [(ngModel)]="collection">
-            </mat-form-field>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ng-select2 class="select-color-field" [(ngModel)]="collection" [data]="listCollections"  [value]="collection" [placeholder]="'Choose Collection'" [width]="400" (valueChanged)="changedColection($event)"></ng-select2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Select Product</label>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <mat-form-field>
-              <input matInput placeholder="product" [(ngModel)]="product">
-            </mat-form-field>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ng-select2 class="select-color-field" [(ngModel)]="product" [data]="listProducts"  [value]="product" [placeholder]="'Choose Product'" [width]="400" (valueChanged)="changedProduct($event)"></ng-select2>
           </div>
         </div>
       </div>
@@ -67,7 +72,7 @@
             <tr *ngFor="let formula of listItems">
               <td>{{formula.formulaCode}}</td>
               <td>{{formula.formulaName}}</td>
-              <td>{{formula.collection}}</td>
+              <td>{{formula.collection.collectionName}}</td>
               <td>{{formula.createdDate}}</td>
               <td>{{formula.createdBy}}</td>
             </tr>
