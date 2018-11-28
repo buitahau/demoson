@@ -1,0 +1,55 @@
+<div class="block-header">
+  <h1>Standard Formula</h1>
+</div>
+
+<!--formulaId : string,-->
+<!--formulaCode : string,-->
+<!--formulaName : string,-->
+<!--collection : CollectionDTO,-->
+<!--createdDate : string,-->
+<!--createdBy : number | null,-->
+
+<!--// 1 - n relation ship-->
+<!--product : ProductDTO,-->
+<!--listColorant : FormulaColourant[]-->
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card filter-card">
+      <div class="card-header">
+        Information
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Color</label>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {{dbItem.formulaCode}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Collection</label>
+          </div>
+
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {{dbItem.collection.collectionName}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Product</label>
+          </div>
+
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {{dbItem.product.productName}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

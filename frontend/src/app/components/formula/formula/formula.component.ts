@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {CollectionDTO, ColorantDTO, FormulaDTO, ProductDTO, Select2Item} from "../../../models/colorant.model";
+import {CollectionDTO, FormulaDTO, ProductDTO, Select2Item} from "../../../models/colorant.model";
 import {FormulaService} from "../../../services/formula/formula.service";
 import {Sort} from "@angular/material";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formula',
@@ -20,7 +21,7 @@ export class FormulaComponent implements OnInit {
   listCollections : Select2Item [] = null;
   listProducts : Select2Item [] = null;
 
-  constructor(private formulaService : FormulaService) { }
+  constructor(private formulaService : FormulaService, private router: Router) { }
 
 
   ngOnInit() {
@@ -39,8 +40,6 @@ export class FormulaComponent implements OnInit {
     if(this.productCode == ""){
       this.productCode = null;
     }
-
-    console.log(this.colorName + " : " + this.collectionCode + " : " + this.productCode);
 
     let result  = this.formulaService.filterAndSort(this.colorName, this.collectionCode, this.productCode, sort);
     let listColors : string [] = result.listColors;
@@ -97,13 +96,12 @@ export class FormulaComponent implements OnInit {
     this.filterFormula(null);
   }
 
-  changedColection(e: any): void {
+  changedCollection(e: any): void {
     this.collectionCode = e.value;
     this.filterFormula(null);
   }
 
-  changedHandle (){
-    console.log(this.collectionCode + " : " + this.colorName + " : " + this.productCode);
-    this.filterFormula(null);
+  viewFormula(id){
+    this.router.navigate([`../dashboard/view-formula/${id}`]);
   }
 }

@@ -46,9 +46,11 @@ import {ProductComponent} from "./components/setting/product/product.component"
 
 // formula
 import {FormulaComponent} from "./components/formula/formula/formula.component";
+import {ViewFormulaComponent} from "./components/formula/viewformula/viewformula.component";
 
 // help page !!
 import {LanguageComponent} from "./components/help/language/language.component";
+
 
 
 const routes: Routes = [
@@ -70,6 +72,7 @@ const routes: Routes = [
 
 
       {path: 'formula', component: FormulaComponent},
+      {path: 'view-formula/:id', component: ViewFormulaComponent},
 
       {path: 'help', component: HelpComponent},
       {path: 'help/language', component: LanguageComponent},
@@ -115,6 +118,7 @@ const routes: Routes = [
 
     // formula component
     FormulaComponent,
+    ViewFormulaComponent
 
   ],
 

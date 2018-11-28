@@ -86,8 +86,6 @@ function getListFormulaEntities() : FormulaDTO []{
     formulaId ++;
   }
 
-  console.log(listFormulaDTO);
-
   return listFormulaDTO;
 }
 
@@ -104,7 +102,7 @@ function getListFormulaEntities() : FormulaDTO []{
 
 function generateFormula(formulaId, formulaCode, formulaName, collection, createdDate, createdBy, listProduct, listColorant) : FormulaDTO []{
   let result = [];
-  for(let product : ProductDTO of listProduct){
+  for(let product of listProduct){
     result.push({
       formulaId : formulaId,
       formulaCode : formulaCode,
@@ -140,6 +138,15 @@ export class FormulaService {
 
   getListItems (){
     return this.listItems;
+  }
+
+  findById (formulaId){
+    let result = this.listItems.filter(filterById);
+    return result != null && result.length > 0 ?  result[0] : null;
+
+    function filterById(item, index, array) {
+      return (item.formulaId == formulaId);
+    }
   }
 
   filterAndSort(colorName: string, collectionCode : string, productCode : string, sort : Sort | null) : FormulaFilterResult {
