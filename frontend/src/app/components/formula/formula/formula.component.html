@@ -35,7 +35,7 @@
           </div>
 
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <ng-select2 class="select-color-field" [(ngModel)]="product" [data]="listProducts"  [value]="product" [placeholder]="'Choose Product'" [width]="400" (valueChanged)="changedProduct($event)"></ng-select2>
+            <ng-select2 class="select-color-field" [(ngModel)]="productCode" [data]="listProducts"  [value]="product" [placeholder]="'Choose Product'" [width]="400" (valueChanged)="changedProduct($event)"></ng-select2>
           </div>
         </div>
       </div>
@@ -64,17 +64,21 @@
             <tr>
               <th mat-sort-header="formulaCode">Formula Code</th>
               <th mat-sort-header="formulaName">Formula Name</th>
-              <th mat-sort-header="collection">collection</th>
+              <th mat-sort-header="collection">Collection
+              <th mat-sort-header="product">Product</th>
               <th mat-sort-header="createdDate">createdDate</th>
               <th mat-sort-header="createdBy">createdBy</th>
+              <th>Action</th>
             </tr>
 
             <tr *ngFor="let formula of listItems">
               <td>{{formula.formulaCode}}</td>
               <td>{{formula.formulaName}}</td>
               <td>{{formula.collection.collectionName}}</td>
+              <td>{{formula.product.productName}}</td>
               <td>{{formula.createdDate}}</td>
               <td>{{formula.createdBy}}</td>
+              <td><span>View formula {{formula.formulaId }} </span></td>
             </tr>
           </table>
         </div>

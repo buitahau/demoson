@@ -67,7 +67,7 @@ export interface FormulaDTO {
   createdBy : number | null,
 
   // 1 - n relation ship
-  listProduct : ProductDTO[],
+  product : ProductDTO,
   listColorant : FormulaColourant[]
 }
 

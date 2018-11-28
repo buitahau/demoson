@@ -13,8 +13,8 @@ export class FormulaComponent implements OnInit {
   listItems : FormulaDTO [] = [];
 
   colorName : string = null;
-  collection : string = null;
-  product : string = null;
+  collectionCode : string = null;
+  productCode : string = null;
 
   listColors : Select2Item []= null;
   listCollections : Select2Item [] = null;
@@ -32,17 +32,17 @@ export class FormulaComponent implements OnInit {
       this.colorName = null;
     }
 
-    if(this.collection == ""){
-      this.collection = null;
+    if(this.collectionCode == ""){
+      this.collectionCode = null;
     }
 
-    if(this.product == ""){
-      this.product = null;
+    if(this.productCode == ""){
+      this.productCode = null;
     }
 
-    console.log(this.colorName + " : " + this.collection + " : " + this.product);
+    console.log(this.colorName + " : " + this.collectionCode + " : " + this.productCode);
 
-    let result  = this.formulaService.filterAndSort(this.colorName, this.collection, this.product, sort);
+    let result  = this.formulaService.filterAndSort(this.colorName, this.collectionCode, this.productCode, sort);
     let listColors : string [] = result.listColors;
     let listProduct : ProductDTO [] = result.listProducts;
     let listCollection : CollectionDTO [] = result.listCollections;
@@ -64,9 +64,9 @@ export class FormulaComponent implements OnInit {
     this.listProducts.push({id : "", text: "Choose Product"});
 
     for(let _product of listProduct){
-      if(mapProduct[_product.productId] == null){
-        mapProduct[_product.productId] = _product;
-        this.listProducts.push({id : _product.productCode, text: _product.productCode});
+      if(mapProduct[_product.productCode] == null){
+        mapProduct[_product.productCode] = _product;
+        this.listProducts.push({id : _product.productCode, text: _product.productName});
       }
     }
 
@@ -93,17 +93,17 @@ export class FormulaComponent implements OnInit {
   }
 
   changedProduct(e: any): void {
-    this.product = e.value;
+    this.productCode = e.value;
     this.filterFormula(null);
   }
 
   changedColection(e: any): void {
-    this.collection = e.value;
+    this.collectionCode = e.value;
     this.filterFormula(null);
   }
 
   changedHandle (){
-    console.log(this.collection + " : " + this.colorName + " : " + this.product);
+    console.log(this.collectionCode + " : " + this.colorName + " : " + this.productCode);
     this.filterFormula(null);
   }
 }

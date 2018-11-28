@@ -7,8 +7,10 @@ import {C_Art, C_Galaxy, C_House, C_Music, C_NCS, C_RAL, C_Special, C_Sports} fr
 import {Sort} from "@angular/material";
 
 
-function getListFormulaEntities() : FormulaDTO[]{
-  return [
+function getListFormulaEntities() : FormulaDTO []{
+  let listFormulaDTO = [];
+
+  let listGenerateArray =  [
     generateFormula(1, 'PW5' , 'PW5', C_House, null, null, [A,B,C3],[{colorant: C_A,quantity:2},{colorant: C_B,quantity:4.5},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0}]),
     generateFormula(2, 'NVB1' , 'NVB1', C_House, null, null, [D,s],[{colorant: C_C,quantity:4},{colorant: C_D,quantity:5},{colorant: C_E,quantity:4},{colorant: C_F,quantity:5.5},{colorant: C_G,quantity:2},{colorant: C_H,quantity:2}]),
     generateFormula(3, 'JK7' , 'JK7', C_House, null, null, [A,B,C3],[{colorant: C_I,quantity:5.5},{colorant: C_J,quantity:2},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0}]),
@@ -73,6 +75,20 @@ function getListFormulaEntities() : FormulaDTO[]{
     generateFormula(62, 'Saturn' , 'Saturn', C_Galaxy, null, null, [D,s],[{colorant: C_O,quantity:16},{colorant: C_P,quantity:8},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0}]),
     generateFormula(63, 'Milky way' , 'Milky way', C_Galaxy, null, null, [A,B,C3,D,s],[{colorant: C_O,quantity:17},{colorant: C_P,quantity:9},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0},{colorant: C_,quantity:0}]),
   ];
+
+  for(let _array of listGenerateArray){
+    listFormulaDTO = listFormulaDTO.concat(_array);
+  }
+
+  let formulaId = 1;
+  for(let _formula of listFormulaDTO){
+    _formula.formulaId = formulaId;
+    formulaId ++;
+  }
+
+  console.log(listFormulaDTO);
+
+  return listFormulaDTO;
 }
 
 // export interface FormulaObject{
@@ -86,17 +102,21 @@ function getListFormulaEntities() : FormulaDTO[]{
 //   listColorant : ColorantDTO[]
 // }
 
-function generateFormula(formulaId, formulaCode, formulaName, collection, createdDate, createdBy, listProduct, listColorant) : FormulaDTO{
-  return {
-    formulaId : formulaId,
-    formulaCode : formulaCode,
-    formulaName : formulaName,
-    collection : collection,
-    createdDate : createdDate,
-    createdBy : createdBy,
-    listProduct : listProduct,
-    listColorant : listColorant
+function generateFormula(formulaId, formulaCode, formulaName, collection, createdDate, createdBy, listProduct, listColorant) : FormulaDTO []{
+  let result = [];
+  for(let product : ProductDTO of listProduct){
+    result.push({
+      formulaId : formulaId,
+      formulaCode : formulaCode,
+      formulaName : formulaName,
+      collection : collection,
+      createdDate : createdDate,
+      createdBy : createdBy,
+      product : product,
+      listColorant : listColorant
+    });
   }
+  return result;
 }
 
 
@@ -122,7 +142,7 @@ export class FormulaService {
     return this.listItems;
   }
 
-  filterAndSort(colorName: string, collection : string, product : string, sort : Sort | null) : FormulaFilterResult {
+  filterAndSort(colorName: string, collectionCode : string, productCode : string, sort : Sort | null) : FormulaFilterResult {
     let listColors = [];
     let listCollections : CollectionDTO[] = [];
     let listProducts : ProductDTO[] = [];
@@ -132,39 +152,23 @@ export class FormulaService {
       let isMatchingColor = false;
       let isMatchingCollection = false;
       let isMatchingProduct = false;
-      let targetProduct = null;
-
 
       if(colorName == null || colorName == "" || formula.formulaCode == colorName){
         isMatchingColor = true;
       }
 
-      if(collection == null || collection == "" || formula.collection.collectionName == collection){
+      if(collectionCode == null || collectionCode == "" || formula.collection.collectionCode == collectionCode){
         isMatchingCollection = true;
       }
 
-      if(product == null || product == ""){
+      if(productCode == null || productCode == "" || formula.product.productCode == productCode ){
         isMatchingProduct = true;
-      } else {
-        for(let _product of formula.listProduct) {
-          if (_product.productCode == product || _product.productName == product) {
-            isMatchingProduct = true;
-            targetProduct = _product;
-          }
-        }
       }
 
       if(isMatchingCollection && isMatchingProduct && isMatchingColor){
         listColors.push(formula.formulaCode);
-
         listCollections.push(formula.collection);
-
-        if(targetProduct != null){
-          listProducts.push(targetProduct);
-        } else {
-          listProducts = listProducts.concat(formula.listProduct);
-        }
-
+        listProducts.push(formula.product);
         listFormula.push(formula);
       }
     }
@@ -175,7 +179,8 @@ export class FormulaService {
         switch (sort.active) {
           case 'formulaCode': return compare(a.formulaCode, b.formulaCode, isAsc);
           case 'formulaName': return compare(a.formulaName, b.formulaName, isAsc);
-          case 'collectionName': return compare(a.collection.collectionName, b.collection.collectionName, isAsc);
+          case 'collection': return compare(a.collection.collectionName, b.collection.collectionName, isAsc);
+          case 'product': return compare(a.product.productName, b.product.productName, isAsc);
 
           // case 'density': return compare(a.density, b.density, isAsc);
           default: return 0;
