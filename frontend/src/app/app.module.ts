@@ -80,7 +80,7 @@ const routes: Routes = [
       {path : 'maintenance', component: MaintenanceComponent},
 
       {path: 'question', component : QuestionComponent},
-      {path: 'help', component: HelpComponent},
+      {path: 'help/overview', component: HelpComponent},
       {path: 'help/language', component: LanguageComponent},
 
       {path: 'create', component: CreateComponent},

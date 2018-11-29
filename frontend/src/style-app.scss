@@ -363,3 +363,9 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 }
+
+
+.img-fluid{
+  max-width: 100%;
+  height: auto !important;
+}

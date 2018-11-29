@@ -40,7 +40,7 @@
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
-        List Colorant {{testInput}}
+        List Colorant
       </div>
 
       <div class="card-body">
@@ -63,7 +63,7 @@
               <td>{{colorant.redV}}</td>
               <td>{{colorant.greenV}}</td>
               <td>{{colorant.blueV}}</td>
-              <td><span style="display: inline-block; width: 30px; height: 30px; background : rgba({{colorant.color}});"></span></td>
+              <td><span [ngStyle]="{'background': 'rgba(' + colorant.redV + ',' + colorant.greenV +',' + colorant.blueV + ',' + colorant.density +')', 'display': 'inline-block', 'width': '30px', 'height': '30px', 'border': '1px solid #333'}"></span></td>
             </tr>
           </table>
         </div>

@@ -7,12 +7,12 @@
   </li>
 
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" id="setting-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    <a class="nav-link dropdown-toggle" id="setting-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="updateCurrentMode(settingMode)" [attr.aria-expanded]="currentMode == settingMode" aria-controls="collapseExample">
       <i class="fas fa-cogs"></i>
       <span class="menu-item">Setting</span>
     </a>
 
-    <div class="dropdown-menu" aria-labelledby="setting-dropdown" [ngbCollapse]="isCollapsed">
+    <div class="dropdown-menu" aria-labelledby="setting-dropdown" [ngbCollapse]="currentMode != settingMode">
       <h6 class="dropdown-header">System setting:</h6>
       <a class="dropdown-item" [routerLink]="['../dashboard/colorant']">Colorant</a>
       <a class="dropdown-item" [routerLink]="['../dashboard/base']">Base</a>
@@ -45,5 +45,26 @@
     <a class="nav-link" [routerLink]="['../dashboard/question']">
       <i class="fas fa-question-circle"></i>
       <span class="menu-item">Help</span></a>
+  </li>
+
+
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['../dashboard/question']">
+      <i class="fab fa-dev"></i>
+      <span class="menu-item">For developer</span></a>
+  </li>
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="developer-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="updateCurrentMode(devMode)" [attr.aria-expanded]="currentMode == devMode" aria-controls="collapseExample">
+      <i class="fas fa-cogs"></i>
+      <span class="menu-item">Developer</span>
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="developer-dropdown" [ngbCollapse]="currentMode != devMode">
+      <h6 class="dropdown-header">Document :</h6>
+      <a class="dropdown-item" [routerLink]="['../dashboard/help/overview']">Overview</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" [routerLink]="['../dashboard/help/language']">Language</a>
+    </div>
   </li>
 </ul>

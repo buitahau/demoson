@@ -10,6 +10,19 @@
       </div>
 
       <div class="card-body">
+        <p>Danh sách các vấn đề cần quan tâm bao gồm :</p>
+
+        <ul>
+          <li>Show 1 biến ra màn hình</li>
+          <li>Gán giá trị local trong template</li>
+          <li>Câu điều kiện if else</li>
+          <li>Vòng lặp</li>
+        </ul>
+      </div>
+
+      <div class="card-body">
+        <h4>Overview</h4>
+
         <p>Trong angular, để set các biến cho các component để sử dụng bên html page, thì ta phải khai báo nó trong method export component.</p>
 
         <p>Mỗi languge có những vấn đề khác nhau, ở đây ta sẽ tìm hiểu về việc show cái giá trị biến, gán giá trị, so sánh
@@ -17,11 +30,13 @@
       </div>
 
       <div class="card-body">
-        <h4>Làm việc với biến.</h4>
+        <h4>Show 1 biến ra màn hình</h4>
 
         <p>Biến trong angular được export trong đoạn block code cuối cùng của component. Ví dụ ta có biến pageTitle.</p>
 
-        <p>Để sử dụng nó, ta sử dụng cặp dấu "{{'{'}}" "{{ '{' }}" "{{ '}' }}" "{{ '}' }}" này nhé.</p>
+        <p>Để show nó ra màn hình ta sử dụng cặp dấu "{{'{'}}" "{{ '{' }}" "{{ '}' }}" "{{ '}' }}" này nhé.</p>
+
+        <p>(Lưu ý là show nó, còn sử dụng thì ko cần cặp dấu  "{{'{'}}" "{{ '}' }}" này đâu nhé. Xem file colorant.component.html để biết thêm chi tiết)</p>
 
         <blockquote>
           Content này lấy từ pageTitle : {{ pageTitle | uppercase }}
@@ -35,6 +50,26 @@
           *ngInit
         </blockquote>
       </div>
+
+      <div class="card-body">
+        <h4>Gán giá trị local trong template.</h4>
+
+        <p>Bổ sung sau</p>
+
+      </div>
+
+      <div class="card-body">
+        <h4>Câu điều kiện if else</h4>
+
+        <p>Đây là 1 ví dụ của câu điều kiện if</p>
+
+        <blockquote>
+          &lt;p *ngIf="heroes.length > 3">There are many heroes!&lt;/p&gt;`
+        </blockquote>
+
+      </div>
+
+
 
 
       <div class="card-body">
@@ -52,11 +87,14 @@
       </div>
 
 
+
+      *ngIf="heroes.length > 3"
+
+
       <div class="card-body">
         <h4>Làm việc với mảng.</h4>
 
         <p>Duyệt các phần tử của mảng : sử dụng * ngFor="let item of listItem" </p>
-
 
         <blockquote>
           <ul *ngFor="let item of listItems">
@@ -66,6 +104,15 @@
       </div>
 
 
+      <div class="card-body">
+        <h4>Style trong angular</h4>
+
+        <p>Xem tai link sau : <a href="https://alligator.io/angular/style-binding-ngstyle-angular/" target="_blank">Click to view </a></p>
+      </div>
+
     </div>
   </div>
 </div>
+
+
+<!---->
