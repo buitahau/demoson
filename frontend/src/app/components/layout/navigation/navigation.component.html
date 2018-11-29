@@ -29,29 +29,22 @@
     </div>
   </li>
 
-  <li class="nav-item">
+  <li class="nav-item" (click)="updateCurrentMode('formula')">
     <a class="nav-link" [routerLink]="['../dashboard/formula']">
       <i class="fas fa-palette"></i>
       <span class="menu-item">Formula</span></a>
   </li>
 
-  <li class="nav-item">
+  <li class="nav-item" (click)="updateCurrentMode('maintenance')">
     <a class="nav-link" [routerLink]="['../dashboard/maintenance']">
       <i class="fas fa-hammer"></i>
       <span class="menu-item">Maintenance</span></a>
   </li>
 
-  <li class="nav-item">
+  <li class="nav-item" (click)="updateCurrentMode('question')">
     <a class="nav-link" [routerLink]="['../dashboard/question']">
       <i class="fas fa-question-circle"></i>
       <span class="menu-item">Help</span></a>
-  </li>
-
-
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['../dashboard/question']">
-      <i class="fab fa-dev"></i>
-      <span class="menu-item">For developer</span></a>
   </li>
 
   <li class="nav-item dropdown">

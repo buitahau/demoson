@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {ProductDTO} from "../../models/colorant.model";
+import {ColorantDTO, ProductDTO} from "../../models/colorant.model";
+import {Sort} from "@angular/material";
 
 function generateProductEntity ( productId : number,
                                  productCode : string,
@@ -28,6 +29,32 @@ export const s = generateProductEntity(6, "S", "Gloss", "", null);
 })
 
 export class ProductService {
+  listItems : ProductDTO[] = [A, B, C3, D, E, s];
+  sortedData : ProductDTO[] = null;
 
-  constructor() { }
+  constructor() {
+    this.sortedData = this.listItems;
+  }
+
+  getListItems() : ProductDTO[]{
+    return this.listItems;
+  }
+
+  sortData(sort: Sort) {
+    const data = this.listItems.slice();
+
+    this.sortedData = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'productCode': return compare(a.productCode, b.productCode, isAsc);
+        case 'productName': return compare(a.productName, b.productName, isAsc);
+        default: return 0;
+      }
+    });
+
+    function compare(a: string | number, b: string | number, isAsc) {
+      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+    }
+  }
+
 }
