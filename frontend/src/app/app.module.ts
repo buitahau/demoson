@@ -45,11 +45,14 @@ import {CollectionComponent} from "./components/setting/collection/collection.co
 import {ProductComponent} from "./components/setting/product/product.component"
 
 // formula
-import {FormulaComponent} from "./components/formula/formula/formula.component";
+import {FormulaComponent} from "./components/formula/listformula/formula.component";
 import {ViewFormulaComponent} from "./components/formula/viewformula/viewformula.component";
+
+import {MaintenanceComponent} from "./components/formula/maintenance/maintenance.component";
 
 // help page !!
 import {LanguageComponent} from "./components/help/language/language.component";
+import {QuestionComponent} from "./components/help/question/question.component";
 
 
 
@@ -74,8 +77,12 @@ const routes: Routes = [
       {path: 'formula', component: FormulaComponent},
       {path: 'view-formula/:id', component: ViewFormulaComponent},
 
-      {path: 'help', component: HelpComponent},
+      {path : 'maintenance', component: MaintenanceComponent},
+
+      {path: 'question', component : QuestionComponent},
+      {path: 'help/overview', component: HelpComponent},
       {path: 'help/language', component: LanguageComponent},
+
       {path: 'create', component: CreateComponent},
       {path: 'edit/:id', component: EditComponent},
       {path: 'list', component: ListComponent},
@@ -95,22 +102,13 @@ const routes: Routes = [
     // dashboard after login
     DashboardComponent,
 
-    ListComponent,
-    CreateComponent,
-    EditComponent,
-
-    // help page
-    HelpComponent,
-    LanguageComponent,
-
-
     // common layout
     HeaderComponent,
     NavigationComponent,
     BreadcrumbComponent,
     FooterComponent,
 
-
+    // setting component
     ColorantComponent,
     BaseComponent,
     CollectionComponent,
@@ -118,8 +116,18 @@ const routes: Routes = [
 
     // formula component
     FormulaComponent,
-    ViewFormulaComponent
+    ViewFormulaComponent,
+    MaintenanceComponent,
 
+    // test component
+    ListComponent,
+    CreateComponent,
+    EditComponent,
+
+    // help page
+    QuestionComponent,
+    HelpComponent,
+    LanguageComponent,
   ],
 
   imports: [

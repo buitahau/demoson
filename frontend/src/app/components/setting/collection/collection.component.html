@@ -9,10 +9,10 @@
         <div class="table-responsive">
           <table class="table table-bordered" matSort (matSortChange)="sortData($event)">
             <tr>
-              <th mat-sort-header="collectionCode">collectionCode</th>
-              <th mat-sort-header="collectionName">collectionName</th>
-              <th mat-sort-header="description">description</th>
-              <th mat-sort-header="createdDate">createdDate</th>
+              <th mat-sort-header="collectionCode">Collection Code</th>
+              <th mat-sort-header="collectionName">Collection Name</th>
+              <th mat-sort-header="description">Description</th>
+              <th mat-sort-header="createdDate">Created Date</th>
               <th mat-sort-header="createdBy">Created By</th>
             </tr>
 
@@ -21,7 +21,10 @@
               <td>{{item.collectionName}}</td>
               <td>{{item.description}}</td>
               <td>{{item.createdDate}}</td>
-              <td>{{item.createBy}}
+              <td>
+                <p *ngIf="item.createBy == null">System</p>
+                <p *ngIf="item.createBy != null">Me</p>
+              </td>
             </tr>
           </table>
         </div>

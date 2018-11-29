@@ -111,7 +111,7 @@ function generateFormula(formulaId, formulaCode, formulaName, collection, create
       createdDate : createdDate,
       createdBy : createdBy,
       product : product,
-      listColorant : listColorant
+      listColorant : listColorant.filter(e => e.colorant != null)
     });
   }
   return result;

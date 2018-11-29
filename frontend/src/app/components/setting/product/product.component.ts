@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductDTO} from "../../../models/colorant.model";
 import {Sort} from "@angular/material";
+import {ProductService} from "../../../services/product/product.service";
 
 
 @Component({
@@ -16,10 +17,10 @@ export class ProductComponent implements OnInit {
   listItems : ProductDTO[] = null;
   sortedData : ProductDTO[] = null;
 
-  constructor() { }
+  constructor(private productService : ProductService) { }
 
   ngOnInit( ) {
-    this.sortedData = this.listItems;
+    this.sortedData = this.productService.getListItems();
   }
 
   filter(){
@@ -33,26 +34,6 @@ export class ProductComponent implements OnInit {
   }
 
   sortData(sort: Sort) {
-    const data = this.listItems.slice();
-
-    this.sortedData = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-      switch (sort.active) {
-        case 'productCode': return compare(a.productCode, b.productCode, isAsc);
-        case 'productName': return compare(a.productName, b.productName, isAsc);
-        // case 'createdDate': return compare(a.createdDate, b.createdDate, isAsc);
-        // case 'createdBy': return compare(a.createdBy, b.createdBy, isAsc);
-        default: return 0;
-      }
-    });
-
-    function compare(a: string | string, b: string | string, isAsc) {
-      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-    }
+    return this.productService.sortData(sort);
   }
-
-  filterByProp (){
-
-  }
-
 }

@@ -27,6 +27,11 @@ export class ColorantComponent implements OnInit {
     this.sortedData = this.colorantService.search(this.code, this.name);
   }
 
+  resetFilter (){
+    this.code = null;
+    this.name = null;
+  }
+
   sortData(sort: Sort) {
     this.sortedData =  this.colorantService.sortData(sort);
   }

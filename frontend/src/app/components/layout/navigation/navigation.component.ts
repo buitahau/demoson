@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  currentMode = "";
+  devMode = "dev";
+  settingMode = "setting";
 
   constructor() { }
 
@@ -13,4 +16,15 @@ export class NavigationComponent implements OnInit {
   }
 
   public isCollapsed = true;
+
+
+  updateCurrentMode (selectMode){
+    if(this.currentMode == selectMode){
+      this.currentMode = "";
+    } else {
+      this.currentMode = selectMode;
+    }
+
+    console.log(this.currentMode);
+  }
 }

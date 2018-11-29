@@ -21,7 +21,10 @@
             <tr *ngFor="let base of sortedData">
               <td>{{base.type}}</td>
               <td>{{base.name}}</td>
-              <td>{{base.createdBy}}</td>
+              <td>
+                <p *ngIf="base.createdBy == null">System</p>
+                <!--{{base.createdBy}}-->
+              </td>
             </tr>
           </table>
         </div>
