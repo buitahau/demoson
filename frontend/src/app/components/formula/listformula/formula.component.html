@@ -66,8 +66,8 @@
               <th mat-sort-header="formulaName">Formula Name</th>
               <th mat-sort-header="collection">Collection
               <th mat-sort-header="product">Product</th>
-              <th mat-sort-header="createdDate">createdDate</th>
-              <th mat-sort-header="createdBy">createdBy</th>
+              <th mat-sort-header="createdDate">Created Date</th>
+              <th mat-sort-header="createdBy">Created By</th>
               <th>Action</th>
             </tr>
 
@@ -79,7 +79,7 @@
               <td>{{formula.createdDate}}</td>
               <td>{{formula.createdBy}}</td>
               <td>
-                <button mat-button color="primary" (click)="viewFormula(formula.formulaId)">View formula</button>
+                <button class="btn btn-primary" (click)="viewFormula(formula.formulaId)"><i class="fas fa-info-circle"></i> View</button>
             </tr>
           </table>
         </div>

@@ -1,17 +1,23 @@
 <app-header></app-header>
-
 <div id="wrapper">
-  <app-navigation></app-navigation>
-
   <div id="content-wrapper">
     <div class="container-fluid">
-      <section class="content">
-        <app-breadcrumb></app-breadcrumb>
-      </section>
 
-      <section class="content">
+      <div class="container">
+        <app-breadcrumb></app-breadcrumb>
+      </div>
+
+      <div class="container">
         <router-outlet></router-outlet>
-      </section>
+      </div>
+
+      <!--<section class="content">-->
+      <!---->
+      <!--</section>-->
+<!---->
+      <!--<section class="content">-->
+        <!---->
+      <!--</section>-->
     </div>
   </div>
 

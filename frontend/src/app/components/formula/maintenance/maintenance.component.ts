@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaintenanceComponent implements OnInit {
 
+  list
   constructor() { }
 
   ngOnInit() {

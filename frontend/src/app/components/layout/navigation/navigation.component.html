@@ -1,10 +1,4 @@
-<ul class="sidebar navbar-nav navigation-bar">
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['../index']">
-      <i class="fas fa-file-contract"></i>
-      <span class="menu-item">Job status</span>
-    </a>
-  </li>
+<ul class="navbar-nav navigation-bar">
 
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" id="setting-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="updateCurrentMode(settingMode)" [attr.aria-expanded]="currentMode == settingMode" aria-controls="collapseExample">
@@ -12,7 +6,7 @@
       <span class="menu-item">Setting</span>
     </a>
 
-    <div class="dropdown-menu" aria-labelledby="setting-dropdown" [ngbCollapse]="currentMode != settingMode">
+    <div class="dropdown-menu" aria-labelledby="setting-dropdown" [ngbCollapse]="currentMode != settingMode" (click)="updateCurrentMode('hide')">
       <h6 class="dropdown-header">System setting:</h6>
       <a class="dropdown-item" [routerLink]="['../dashboard/colorant']">Colorant</a>
       <a class="dropdown-item" [routerLink]="['../dashboard/base']">Base</a>
@@ -35,6 +29,13 @@
       <span class="menu-item">Formula</span></a>
   </li>
 
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['../index']">
+      <i class="fas fa-file-contract"></i>
+      <span class="menu-item">Job status</span>
+    </a>
+  </li>
+
   <li class="nav-item" (click)="updateCurrentMode('maintenance')">
     <a class="nav-link" [routerLink]="['../dashboard/maintenance']">
       <i class="fas fa-hammer"></i>
@@ -53,7 +54,7 @@
       <span class="menu-item">Developer</span>
     </a>
 
-    <div class="dropdown-menu" aria-labelledby="developer-dropdown" [ngbCollapse]="currentMode != devMode">
+    <div class="dropdown-menu" aria-labelledby="developer-dropdown" [ngbCollapse]="currentMode != devMode" (click)="updateCurrentMode('hide')">
       <h6 class="dropdown-header">Document :</h6>
       <a class="dropdown-item" [routerLink]="['../dashboard/help/overview']">Overview</a>
       <div class="dropdown-divider"></div>

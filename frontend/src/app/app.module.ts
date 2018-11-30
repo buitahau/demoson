@@ -67,7 +67,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     children: [
-      {path: '', redirectTo: 'list', pathMatch: 'full'},
+      {path: '', redirectTo: 'formula', pathMatch: 'full'},
       {path: 'colorant', component: ColorantComponent},
       {path: 'base', component: BaseComponent},
       {path: 'collection', component: CollectionComponent},

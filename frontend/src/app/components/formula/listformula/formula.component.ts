@@ -59,13 +59,20 @@ export class FormulaComponent implements OnInit {
         this.listColors.push({id : _color, text: _color});
       }
     }
-    this.listProducts = [];
-    this.listProducts.push({id : "", text: "Choose Product"});
 
-    for(let _product of listProduct){
-      if(mapProduct[_product.productCode] == null){
-        mapProduct[_product.productCode] = _product;
-        this.listProducts.push({id : _product.productCode, text: _product.productName});
+    if(listProduct.length === 1){
+      this.listProducts = [];
+      this.productCode = listProduct[0].productCode;
+
+    } else {
+      this.listProducts = [];
+      this.listProducts.push({id : "", text: "Choose Product"});
+
+      for(let _product of listProduct){
+        if(mapProduct[_product.productCode] == null){
+          mapProduct[_product.productCode] = _product;
+          this.listProducts.push({id : _product.productCode, text: _product.productName});
+        }
       }
     }
 

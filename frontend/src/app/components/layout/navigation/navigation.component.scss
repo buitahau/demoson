@@ -1,14 +1,28 @@
 .navigation-bar{
-  > li.nav-item{
+  .nav-item{
+    margin-left: 25px;
+    color:  #00417b;
+    text-align: center;
 
+    > .nav-link{
+      color:  #00417b;
+
+      > i.fas{
+        font-size: 42px;
+        color:  #00417b;
+      }
+    }
+
+    &.dropdown{
+     .dropdown-toggle::after{
+        display: none;
+     }
+    }
   }
+  span.menu-item {
+    font-size: 14px !important;
+    white-space: nowrap;
+    display: block;
 
-  li.nav-item,
-  .menu-item{
-    font-size: 18px;
-  }
-
-  .menu-item{
-    padding: 0px 1em;
   }
 }
