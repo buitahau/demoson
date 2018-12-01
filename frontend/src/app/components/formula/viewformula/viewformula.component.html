@@ -63,7 +63,9 @@
         <div class="form-group row">
           <label class="col-md-4 label-control">Barcode</label>
           <div class="col-md-8">
-            BAR_CODE_CONTENT
+            <span *ngIf="selectProductBase != null">
+              {{selectProductBase.barCode}}
+            </span>
           </div>
         </div>
       </div>
@@ -129,7 +131,7 @@
               </span>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-126 col-xs-12">
+          <div class="col-lg-6 col-md-6 col-sm-126 col-xs-12 form-detail">
             <div class="row form-group">
               <label class="col-md-4 label-control">Number of cans : </label>
               <div class="col-md-8">
@@ -142,6 +144,10 @@
               <div class="col-md-8">
                 <ng-select2 class="select-color-field" [(ngModel)]="canSize" [data]="listProductBase"  [value]="canSize" [placeholder]="'Choose Cansize'" [width]="200" (valueChanged)="changedCanSize($event)"></ng-select2>
               </div>
+            </div>
+
+            <div class="row form-group">
+              <button class="btn btn-primary">Dispense</button>
             </div>
           </div>
         </div>

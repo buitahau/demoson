@@ -136,7 +136,7 @@ footer.sticky-footer{
 
   .base-can-background{
     position: absolute;
-    bottom: 27px;
+    bottom: 30px;
     left: 14px;
     right: 16px;
     width: auto !important;
@@ -148,32 +148,34 @@ footer.sticky-footer{
       left: 0px;
       bottom: 0px;
       right: 0px;
-      border-left: 1px solid #ccc;
-      border-right: 1px solid #ccc;
+      border-left: 2px solid #ccc;
+      border-right: 2px solid #ccc;
 
       &:before, &:after{
         content: "";
         display: inline-block;
-        width: 100%;
-
         position: absolute;
-        left: 0px;
-        right: 0px;
+
         border-radius: 100%;
         background-color: inherit;
       }
 
       &:before{
         top: 0px;
+        left: -2px;
+        right: -2px;
         transform: translate(0%, -50%);
         height: 20px;
-        border: 1px solid #ccc;
+        border: 2px solid #ccc;
       }
 
       &:after{
         bottom: 0px;
+        left: 0px;
+        right: 0px;
         transform: translate(0%, 50%);
         height: 42px;
+        border-bottom: 2px solid #ccc;
       }
     }
 
