@@ -56,6 +56,7 @@ export interface ProductBaseCanDTO{
   pricePerCan : number,
   barCode : string,
   percentage : number,
+  color : string
 }
 
 export interface FormulaDTO {
@@ -88,12 +89,8 @@ export interface FormulaProductBase{
   productBase : ProductBaseDTO,
 }
 
-// export interface ProductBaseDTO{
-//   formulaProductBaseId : number,
-//   base : BaseDTO,
-//   product : ProductDTO,
-//   unit : number,
-//   price : number,
-//   fill : number,
-//   barCode : string
-// }
+export interface PrefillComponentDTO{
+  base : BaseDTO,
+  product : ProductDTO,
+  color : string
+}

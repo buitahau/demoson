@@ -108,3 +108,94 @@ footer.sticky-footer{
     }
   }
 }
+
+
+.base-can-empty{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 211px;
+  height: 260px;
+
+  background: url('/assets/images/empty_base_can_size.png') center center no-repeat;
+  background-size: 100% 100%;
+  padding: 75px 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+
+  .base-can-background{
+    position: absolute;
+    bottom: 27px;
+    left: 14px;
+    right: 16px;
+    width: auto !important;
+    top: 28px;
+
+    .base-can-volume{
+      position: absolute;
+      display: inline-block;
+      left: 0px;
+      bottom: 0px;
+      right: 0px;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+
+      &:before, &:after{
+        content: "";
+        display: inline-block;
+        width: 100%;
+
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        border-radius: 100%;
+        background-color: inherit;
+      }
+
+      &:before{
+        top: 0px;
+        transform: translate(0%, -50%);
+        height: 20px;
+        border: 1px solid #ccc;
+      }
+
+      &:after{
+        bottom: 0px;
+        transform: translate(0%, 50%);
+        height: 45px;
+      }
+    }
+
+    .can-base-info{
+      display: inline-block;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      > *{
+        white-space: nowrap;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .base-type{
+        position: relative;
+        font-size: 24px;
+      }
+
+      .base-volume{
+        position: relative;
+        font-size: 20px;
+      }
+
+      .base-name{
+        position: relative;
+        font-size: 16px;
+      }
+    }
+  }
+
+
+}

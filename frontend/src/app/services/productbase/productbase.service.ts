@@ -3,13 +3,49 @@ import { Injectable } from '@angular/core';
 import {BASE_DE, BASE_EDE, BASE_EPA, BASE_PA} from '../base/base.service';
 import {A, B, C3, D, E, s} from '../product/product.service'
 import {
-  BaseDTO,
+  BaseDTO, PrefillComponentDTO,
   ProductBaseCanDTO, ProductBaseDTO,
   ProductDTO
 } from "../../models/colorant.model";
 
+let prefillComponent = [
+  generatePrefillComponent(BASE_EDE,A,'rgba(100,100,100,1)'),
+  generatePrefillComponent(BASE_PA,B,'rgba(255,255,200,1)'),
+  generatePrefillComponent(BASE_EPA,B,'rgba(255,255,235,1)'),
+  generatePrefillComponent(BASE_DE,B,'rgba(200,200,200,1)'),
+  generatePrefillComponent(BASE_EDE,B,'rgba(100,100,100,1)'),
+  generatePrefillComponent(BASE_PA,C3,'rgba(255,255,200,1)'),
+  generatePrefillComponent(BASE_EPA,C3,'rgba(255,255,235,1)'),
+  generatePrefillComponent(BASE_DE,C3,'rgba(200,200,200,1)'),
+  generatePrefillComponent(BASE_EDE,C3,'rgba(100,100,100,1)'),
+  generatePrefillComponent(BASE_PA,D,'rgba(255,255,200,1)'),
+  generatePrefillComponent(BASE_EPA,D,'rgba(255,255,235,1)'),
+  generatePrefillComponent(BASE_DE,D,'rgba(200,200,200,1)'),
+  generatePrefillComponent(BASE_EDE,D,'rgba(100,100,100,1)'),
+  generatePrefillComponent(BASE_PA,s,'rgba(255,255,200,1)'),
+  generatePrefillComponent(BASE_EPA,s,'rgba(255,255,235,1)'),
+  generatePrefillComponent(BASE_DE,s,'rgba(200,200,200,1)'),
+  generatePrefillComponent(BASE_EDE,s,'rgba(100,100,100,1)'),
+];
 
-let listPrefillComponent = [
+function generatePrefillComponent(base : BaseDTO, product : ProductDTO, color : string) : PrefillComponentDTO{
+  return {
+    base : base,
+    product : product,
+    color : color
+  }
+}
+
+let mapPrefillColor = {};
+for(let item of prefillComponent){
+  mapPrefillColor[generatePrefillComponentCode(item.base, item.product)] = item.color
+}
+
+function generatePrefillComponentCode (base : BaseDTO, product : ProductDTO){
+  return base.type + "_" + product.productCode;
+}
+
+let listProductBaseCan = [
   generateBaseProduct(1,BASE_PA,A,'1 lt',10,80,'871100000001'),
   generateBaseProduct(2,BASE_PA,A,'2.5 LT',25,90,'871100000002'),
   generateBaseProduct(3,BASE_EPA,A,'1 lt',10,80,'871100000003'),
@@ -57,7 +93,17 @@ function generateBaseProduct(productBaseCanId : number, base : BaseDTO, product 
     pricePerCan : pricePerCan,
     barCode : barCode,
     percentage : percentage,
+    color : getColorFromMapPrefill(base, product)
   };
+
+  function getColorFromMapPrefill(base, product): string{
+    let color =  mapPrefillColor[generatePrefillComponentCode(base, product)];
+
+    if(color == null || color == undefined){
+      color = 'rgba(255, 255, 255, 0)';
+    }
+    return color
+  }
 }
 
 function getCanFromUnitStr(unitStr : string) : number{
@@ -66,7 +112,7 @@ function getCanFromUnitStr(unitStr : string) : number{
 }
 
 function getUnitFromUnitStr(unitStr : string){
-  let unitArray = unitStr.split(" ");
+  let unitArray = unitStr.toUpperCase().split(" ");
   if(unitArray.length > 1){
     return unitArray[1];
   } else {
@@ -80,7 +126,7 @@ function getUnitFromUnitStr(unitStr : string){
 })
 export class ProductBaseService {
 
-  listDBItems = listPrefillComponent;
+  listDBItems = listProductBaseCan;
 
   constructor() { }
 

@@ -17,6 +17,7 @@ export class ViewFormulaComponent implements OnInit {
 
   canSize = 1;
   numberOfCan = 1;
+  selectProductBase : ProductBaseCanDTO = null;
   listProductBase : ProductBaseCanDTO[] | null = null;
 
   constructor(private formulaService : FormulaService, private productBaseService : ProductBaseService, private router: Router, private route: ActivatedRoute) { }
@@ -42,9 +43,18 @@ export class ViewFormulaComponent implements OnInit {
 
     for(let productBase : ProductBaseCanDTO of listProductBase){
       this.listProductBase.push({id : productBase.can, text: productBase.can + " " + productBase.unit});
+      if(productBase.can == this.canSize){
+        this.selectProductBase =  productBase;
+      }
+    }
+
+    if(this.selectProductBase == null){
+      this.selectProductBase = listProductBase[0];
+      this.canSize = this.selectProductBase.can;
     }
 
     console.log(this.listProductBase);
+    console.log(this.selectProductBase);
   }
 
   changedCanSize(e: any): void {

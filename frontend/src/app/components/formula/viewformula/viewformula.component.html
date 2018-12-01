@@ -107,31 +107,40 @@
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="card filter-card">
+    <div class="card">
       <div class="card-header">
         Mixed
       </div>
 
       <div class="card-body">
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-126 col-xs-12">
-            <label class="col-md-4 label-control">Number of cans : </label>
-            <div class="col-md-8">
-              <!--<input type="number"-->
-                     <!--ng-model="numberOfCan"-->
-                     <!--[ng-min="1"]-->
-                     <!--[ng-max="100"]-->
-                     <!--[ng-step="1"]-->
-                     <!--[required="true"]-->
-                     <!--[ng-required="true"]-->
-              <!--&gt;-->
-            </div>
+          <div class="col-lg-6 col-md-6 col-sm-126 col-xs-12 text-right">
+             <span class="base-can-empty">
+                <span class="base-can-background">
+                  <span class="base-can-volume" [ngStyle]="{'background-color': selectProductBase.color, 'height': selectProductBase.percentage + '%'}">
+                    <span class="can-base-info">
+                      <span class="base-type">Base : {{dbItem.base.type}}</span>
+                      <span class="base-volume">{{selectProductBase.can + " " + selectProductBase.unit}}</span>
+                      <span class="base-name">{{dbItem.base.name}}</span>
+                    </span>
+                  </span>
+                </span>
+              </span>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-126 col-xs-12">
-            <label class="col-md-4 label-control">Can size:</label>
-            <div class="col-md-8">
-              <ng-select2 class="select-color-field" [ngModelOptions]="{standalone: true}" [(ngModel)]="canSize" [data]="listProductBase"  [value]="canSize" [placeholder]="'Choose Cansize'" [width]="200" (valueChanged)="changedCanSize($event)"></ng-select2>
+            <div class="row form-group">
+              <label class="col-md-4 label-control">Number of cans : </label>
+              <div class="col-md-8">
+                <input type="number" [(ngModel)]="numberOfCan" class="form-control" required="required" [ngModelOptions]="{standalone: true}" [ngStyle]="{'width': '200px'}">
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <label class="col-md-4 label-control">Can size:</label>
+              <div class="col-md-8">
+                <ng-select2 class="select-color-field" [(ngModel)]="canSize" [data]="listProductBase"  [value]="canSize" [placeholder]="'Choose Cansize'" [width]="200" (valueChanged)="changedCanSize($event)"></ng-select2>
+              </div>
             </div>
           </div>
         </div>
