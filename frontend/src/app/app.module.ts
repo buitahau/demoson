@@ -26,6 +26,8 @@ import {ColorantService} from "./services/colorant/colorant.service";
 import {ProductService} from "./services/product/product.service";
 import {CollectionService} from "./services/collection/collection.service";
 import {FormulaService} from "./services/formula/formula.service";
+import {BaseService} from "./services/base/base.service";
+import {ProductBaseService} from "./services/productbase/productbase.service";
 
 import {LoginComponent} from './components/login-page/login/login.component';
 import {RegisterComponent} from './components/login-page/register/register.component';
@@ -153,7 +155,9 @@ const routes: Routes = [
     ColorantService,
     ProductService,
     CollectionService,
-    FormulaService
+    FormulaService,
+    BaseService,
+    ProductBaseService
   ],
   bootstrap: [AppComponent]
 })

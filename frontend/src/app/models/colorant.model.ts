@@ -39,13 +39,13 @@ export interface ProductDTO {
 }
 
 export interface ProductBaseDTO{
-  productBaseId : number,
+  // productBaseId : number,
   product : ProductDTO,
   base : BaseDTO,
-  density : number,
-  rbgHex : string,
-  createdDate:  string,
-  createdBy : number,
+  // density : number,
+  // rbgHex : string,
+  // createdDate:  string,
+  // createdBy : number,
 }
 
 export interface ProductBaseCanDTO{
@@ -63,6 +63,7 @@ export interface FormulaDTO {
   formulaCode : string,
   formulaName : string,
   collection : CollectionDTO,
+  base : BaseDTO,
   createdDate : string,
   createdBy : number | null,
 
@@ -87,3 +88,12 @@ export interface FormulaProductBase{
   productBase : ProductBaseDTO,
 }
 
+// export interface ProductBaseDTO{
+//   formulaProductBaseId : number,
+//   base : BaseDTO,
+//   product : ProductDTO,
+//   unit : number,
+//   price : number,
+//   fill : number,
+//   barCode : string
+// }

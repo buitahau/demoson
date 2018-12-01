@@ -1,7 +1,11 @@
-.formula-detail{
-  .form-group{
-    label.label-control{
-      text-align: right;
-    }
+.color-bar{
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  height: 1em;
+
+  .color-select{
+    display: inline-block;
+    height: 1em;
   }
 }

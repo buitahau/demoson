@@ -99,3 +99,12 @@ footer.sticky-footer{
   margin-bottom: 1em;
   width: 100%;
 }
+
+
+.form-detail{
+  .form-group{
+    label.label-control{
+      text-align: right;
+    }
+  }
+}

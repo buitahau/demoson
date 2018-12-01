@@ -9,7 +9,7 @@
         Information
       </div>
 
-      <div class="card-body">
+      <div class="card-body form-detail">
         <div class="form-group row">
           <label class="col-md-4 label-control">Color</label>
           <div class="col-md-8">
@@ -78,22 +78,25 @@
       </div>
 
       <div class="card-body">
-        <div class="row" *ngFor="let colorantItem of dbItem.listColorant">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <label>{{colorantItem.colorant.name}}</label>
-          </div>
+        <div class="table-responsive">
+          <table class="table table-bordered" >
+            <tr>
+              <th style="width: 30%">Component</th>
+              <th style="width: 20%">ml</th>
+              <th style="width: 50%">Color
+            </tr>
 
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            {{colorantItem.quantity}}
-          </div>
-        </div>
-
-        <div class="row">
-          <hr class="separate-line"/>
-        </div>
-
-        <div class="row">
-          <hr/>
+            <tr *ngFor="let colorantItem of dbItem.listColorant">
+              <td>{{colorantItem.colorant.name}}</td>
+              <td>{{colorantItem.quantity * canSize}}</td>
+              <td>
+                <span class="color-bar" >
+                  <span class="color-select" [ngStyle]="{'background': 'rgba(' + colorantItem.colorant.redV + ',' + colorantItem.colorant.greenV +',' + colorantItem.colorant.blueV + ',' + colorantItem.colorant.density +')',
+                  'width': (colorantItem.quantity / quantity) * 100 + '%'}"></span>
+                </span>
+              </td>
+            </tr>
+          </table>
         </div>
 
       </div>
@@ -112,54 +115,28 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-126 col-xs-12">
-            <div class="row">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <label>Color</label>
-              </div>
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                {{dbItem.formulaCode}}
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <label>Collection</label>
-              </div>
-
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                {{dbItem.collection.collectionName}}
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <label>Product</label>
-              </div>
-
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                {{dbItem.product.productName}}
-              </div>
+            <label class="col-md-4 label-control">Number of cans : </label>
+            <div class="col-md-8">
+              <!--<input type="number"-->
+                     <!--ng-model="numberOfCan"-->
+                     <!--[ng-min="1"]-->
+                     <!--[ng-max="100"]-->
+                     <!--[ng-step="1"]-->
+                     <!--[required="true"]-->
+                     <!--[ng-required="true"]-->
+              <!--&gt;-->
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-126 col-xs-12">
-            <div class="row">
-              Should be replaced by bar chart.
-            </div>
-
-            <div class="row" *ngFor="let colorantItem of dbItem.listColorant">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <label>{{colorantItem.colorant.name}}</label>
-              </div>
-
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                {{colorantItem.quantity}}
-              </div>
+            <label class="col-md-4 label-control">Can size:</label>
+            <div class="col-md-8">
+              <ng-select2 class="select-color-field" [ngModelOptions]="{standalone: true}" [(ngModel)]="canSize" [data]="listProductBase"  [value]="canSize" [placeholder]="'Choose Cansize'" [width]="200" (valueChanged)="changedCanSize($event)"></ng-select2>
             </div>
           </div>
         </div>
-
       </div>
+
     </div>
   </div>
 </div>
