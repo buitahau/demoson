@@ -10,42 +10,40 @@
       </div>
 
       <div class="card-body">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <label>Select Color</label>
-          </div>
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <ng-select2 class="select-color-field" [(ngModel)]="colorName" [data]="listColors"  [value]="colorName" [placeholder]="'Choose Color'"  [width]="400" (valueChanged)="changedColor($event)"></ng-select2>
-          </div>
-        </div>
+        <form class="form form-horizontal">
+          <div class="form-body">
+            <div class="form-group row">
+              <label class="col-md-3 label-control">Select Color</label>
+              <div class="col-md-9">
+                <ng-select2 class="select-color-field" [ngModelOptions]="{standalone: true}" [(ngModel)]="colorName" [data]="listColors"  [value]="colorName" [placeholder]="'Choose Color'"  [width]="400" (valueChanged)="changedColor($event)"></ng-select2>
+              </div>
+            </div>
 
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <label>Select Collection</label>
+            <div class="form-group row">
+              <label class="col-md-3 label-control">Select Collection</label>
+              <div class="col-md-9">
+                <ng-select2 class="select-color-field" [ngModelOptions]="{standalone: true}" [(ngModel)]="collectionCode" [data]="listCollections"  [value]="collectionCode" [placeholder]="'Choose Collection'" [width]="400" (valueChanged)="changedCollection($event)"></ng-select2>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control">Select Product</label>
+              <div class="col-md-9">
+                <ng-select2 class="select-color-field" [ngModelOptions]="{standalone: true}" [(ngModel)]="productCode" [data]="listProducts"  [value]="productCode" [placeholder]="'Choose Product'" [width]="400" (valueChanged)="changedProduct($event)"></ng-select2>
+              </div>
+            </div>
           </div>
 
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <ng-select2 class="select-color-field" [(ngModel)]="collection" [data]="listCollections"  [value]="collection" [placeholder]="'Choose Collection'" [width]="400" (valueChanged)="changedCollection($event)"></ng-select2>
+          <div class="form-actions text-center">
+            <button class="btn btn-primary mr-3" (click)="filterFormula(null)">Search</button>
+            <button class="btn btn-default">Reset</button>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <label>Select Product</label>
-          </div>
-
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <ng-select2 class="select-color-field" [(ngModel)]="productCode" [data]="listProducts"  [value]="product" [placeholder]="'Choose Product'" [width]="400" (valueChanged)="changedProduct($event)"></ng-select2>
-          </div>
-        </div>
+        </form>
       </div>
 
-      <div class="card-footer">
-        <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="filterFormula(null)">Search</button>
-          <button mat-button class="btn btn-default">Reset</button>
-        </mat-card-actions>
-      </div>
+      <!--<div class="card-footer">-->
+
+      <!--</div>-->
     </div>
   </div>
 </div>

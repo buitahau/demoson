@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
 export class FormulaComponent implements OnInit {
   listItems : FormulaDTO [] = [];
 
-  colorName : string = null;
-  collectionCode : string = null;
-  productCode : string = null;
+  colorName : string = "";
+  collectionCode : string = "";
+  productCode : string = "";
 
   listColors : Select2Item []= null;
   listCollections : Select2Item [] = null;
@@ -29,16 +29,16 @@ export class FormulaComponent implements OnInit {
   }
 
   filterFormula (sort: Sort | null){
-    if(this.colorName == ""){
-      this.colorName = null;
+    if(this.colorName == null){
+      this.colorName = "";
     }
 
-    if(this.collectionCode == ""){
-      this.collectionCode = null;
+    if(this.collectionCode == null){
+      this.collectionCode = "";
     }
 
-    if(this.productCode == ""){
-      this.productCode = null;
+    if(this.productCode == null){
+      this.productCode = "";
     }
 
     let result  = this.formulaService.filterAndSort(this.colorName, this.collectionCode, this.productCode, sort);
@@ -60,11 +60,11 @@ export class FormulaComponent implements OnInit {
       }
     }
 
-    if(listProduct.length === 1){
-      this.listProducts = [];
-      this.productCode = listProduct[0].productCode;
-
-    } else {
+    // if(listProduct.length === 1){
+    //   this.listProducts = [];
+    //   this.productCode = listProduct[0].productCode;
+    //
+    // } else {
       this.listProducts = [];
       this.listProducts.push({id : "", text: "Choose Product"});
 
@@ -74,7 +74,7 @@ export class FormulaComponent implements OnInit {
           this.listProducts.push({id : _product.productCode, text: _product.productName});
         }
       }
-    }
+    // }
 
     this.listCollections = [];
     this.listCollections.push({id : "", text: "Choose Collection"});

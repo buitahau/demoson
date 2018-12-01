@@ -68,7 +68,12 @@ export interface FormulaDTO {
 
   // 1 - n relation ship
   product : ProductDTO,
-  listColorant : FormulaColourant[]
+  listColorant : FormulaColourant[],
+
+  formulaDate: string,
+  colorRGB: string,
+  comments: string| null,
+  substrate: string | null
 }
 
 export interface FormulaColourant {
