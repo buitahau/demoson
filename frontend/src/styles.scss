@@ -117,11 +117,22 @@ footer.sticky-footer{
   width: 211px;
   height: 260px;
 
-  background: url('/assets/images/empty_base_can_size.png') center center no-repeat;
-  background-size: 100% 100%;
+
   padding: 75px 15px;
   margin-left: 30px;
   margin-right: 30px;
+
+  &:after{
+    content : "";
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: url('/assets/images/empty_base_can_size.png') center center no-repeat;
+    background-size: 100% 100%;
+  }
 
   .base-can-background{
     position: absolute;
@@ -129,7 +140,7 @@ footer.sticky-footer{
     left: 14px;
     right: 16px;
     width: auto !important;
-    top: 28px;
+    top: 20px;
 
     .base-can-volume{
       position: absolute;
@@ -162,7 +173,7 @@ footer.sticky-footer{
       &:after{
         bottom: 0px;
         transform: translate(0%, 50%);
-        height: 45px;
+        height: 42px;
       }
     }
 
