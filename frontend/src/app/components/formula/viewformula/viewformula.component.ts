@@ -30,6 +30,7 @@ export class ViewFormulaComponent implements OnInit {
   }
 
   fetchDBItem(){
+    this.selectProductBase = null;
     this.dbItem = this.formulaService.findById(this.id);
 
     for(let colorant of this.dbItem.listColorant){
@@ -48,7 +49,7 @@ export class ViewFormulaComponent implements OnInit {
       }
     }
 
-    if(this.selectProductBase == null){
+    if(this.selectProductBase == null && listProductBase.length > 0){
       this.selectProductBase = listProductBase[0];
       this.canSize = this.selectProductBase.can;
     }

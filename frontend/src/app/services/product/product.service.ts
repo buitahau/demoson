@@ -21,7 +21,7 @@ export const B = generateProductEntity(2, "B", "Primer", "", null);
 export const C3 = generateProductEntity(3, "C3", "Floor Paint", "", null);
 export const D = generateProductEntity(4, "D", "Nautic Paint", "", null);
 export const E = generateProductEntity(5, "E", "Gloss", "", null);
-export const s = generateProductEntity(6, "S", "Gloss", "", null);
+export const s = generateProductEntity(6, "s", "Gloss", "", null);
 
 
 @Injectable({

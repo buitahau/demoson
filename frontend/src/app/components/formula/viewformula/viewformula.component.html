@@ -115,7 +115,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-126 col-xs-12 text-right">
-             <span class="base-can-empty">
+
+             <span class="base-can-empty" *ngIf="selectProductBase != null">
                 <span class="base-can-background">
                   <span class="base-can-volume" [ngStyle]="{'background-color': selectProductBase.color, 'height': selectProductBase.percentage + '%'}">
                     <span class="can-base-info">
