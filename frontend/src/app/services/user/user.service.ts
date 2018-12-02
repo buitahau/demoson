@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserDTO} from "../../models/user.model";
+import {USER_ROLE} from "../../models/constant";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,6 @@ import {UserDTO} from "../../models/user.model";
 export class UserService {
   isLogin : boolean = false;
   userDTO : UserDTO = null;
-  role : string  = null;
 
   constructor() {
     this.checkIsLogin();
@@ -21,30 +21,34 @@ export class UserService {
 
   login(userName : string, password : string) : UserDTO{
     if(userName === "admin" && password === "123456"){
-      this.userDTO = {userName : "admin", password: "123456"};
+      this.userDTO = {userName : "admin", password: "123456", role : USER_ROLE.ADMIN};
       this.isLogin = true;
-      this.role = "ADMIN";
     } else if (userName === "shop" && password === "123456"){
-      this.userDTO = {userName : "shop", password: "123456"};
+      this.userDTO = {userName : "shop", password: "123456", role : USER_ROLE.SHOP};
       this.isLogin = true;
-      this.role = "SHOP";
 
     } else if (userName === "operator" && password === "123456"){
-      this.userDTO = {userName : "shop", password: "123456"};
+      this.userDTO = {userName : "operator", password: "123456", role : USER_ROLE.OPERATOR};
       this.isLogin = true;
-      this.role = "OPERATOR";
 
     } else if (userName === "maintenance" && password === "123456"){
-      this.userDTO = {userName : "shop", password: "123456"};
+      this.userDTO = {userName : "maintenance", password: "123456", role : USER_ROLE.MAINTENANCE};
       this.isLogin = true;
-      this.role = "MAINTENANCE";
 
     } else {
       this.userDTO = null;
       this.isLogin = false;
-      this.role = "ANONYMOUS";
     }
 
     return this.userDTO;
+  }
+
+  getLogginUse() : UserDTO | null{
+    return this.userDTO
+  }
+
+  logOut(){
+    this.userDTO = null;
+    this.isLogin = false;
   }
 }

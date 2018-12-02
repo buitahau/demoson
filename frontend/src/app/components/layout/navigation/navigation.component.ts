@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../../services/user/user.service";
+import {UserDTO} from "../../../models/user.model";
+import {Router} from "@angular/router";
+
+import {USER_ROLE} from "../../../models/constant";
 
 @Component({
   selector: 'app-navigation',
@@ -6,17 +11,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  USER_ROLE : USER_ROLE = USER_ROLE;
+  curentUse : UserDTO | null;
   currentMode = "";
-  devMode = "dev";
-  settingMode = "setting";
 
-  constructor() { }
+  userMode = "user";
+  settingMode = "setting";
+  devMode = "dev";
+
+  constructor(private userService : UserService, private router: Router) { }
 
   ngOnInit() {
+    this.curentUse = this.userService.getLogginUse();
+
+    if(this.curentUse == null){
+      this.router.navigate([`../login`]);
+    }
   }
-
-  public isCollapsed = true;
-
 
   updateCurrentMode (selectMode){
     if(this.currentMode == selectMode){
@@ -24,7 +35,10 @@ export class NavigationComponent implements OnInit {
     } else {
       this.currentMode = selectMode;
     }
+  }
 
-    console.log(this.currentMode);
+  logOut (){
+    this.userService.logOut();
+    this.router.navigate([`../login`]);
   }
 }

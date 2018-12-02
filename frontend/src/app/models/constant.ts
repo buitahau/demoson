@@ -1,0 +1,6 @@
+export let USER_ROLE = {
+  'ADMIN' : 'ADMIN',
+  'SHOP' : 'SHOP',
+  'OPERATOR' : 'OPERATOR',
+  'MAINTENANCE' : 'MAINTENANCE'
+};
