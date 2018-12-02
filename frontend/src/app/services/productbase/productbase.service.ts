@@ -131,7 +131,7 @@ export class ProductBaseService {
 
   constructor() { }
 
-  filterByProductCodeAndBaseType(productCode, baseType) : ProductBaseCanDTO[] | null{
+  filterByProductCodeAndBaseType(productCode: string | null, baseType : string | null) : ProductBaseCanDTO[] | null{
     if(productCode == null || productCode == "" || baseType == null || baseType == ""){
       return [];
 
