@@ -3,6 +3,7 @@ import {FormulaService} from "../../../services/formula/formula.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormulaDTO, ProductBaseCanDTO, Select2Item} from "../../../models/colorant.model";
 import {ProductBaseService} from "../../../services/productbase/productbase.service";
+import {ModalService} from "../../../services/boostrap/modal.service";
 
 @Component({
   selector: 'app-viewformula',
@@ -20,7 +21,7 @@ export class ViewFormulaComponent implements OnInit {
   selectProductBase : ProductBaseCanDTO = null;
   listProductBase : Select2Item[] | null = null;
 
-  constructor(private formulaService : FormulaService, private productBaseService : ProductBaseService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private formulaService : FormulaService, private productBaseService : ProductBaseService, private modalService: ModalService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -60,5 +61,13 @@ export class ViewFormulaComponent implements OnInit {
 
   changedCanSize(e: any): void {
     this.canSize = e.value;
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }

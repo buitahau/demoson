@@ -6,6 +6,9 @@
 
   .color-select{
     display: inline-block;
-    height: 1em;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
   }
 }

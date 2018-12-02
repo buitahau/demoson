@@ -150,13 +150,76 @@
               <label class="col-md-4 label-control"></label>
 
               <div class="col-md-8">
-                <button class="btn btn-primary"><i class="fas fa-fill-drip"></i> Dispense</button>
+                <button class="btn btn-primary" (click)="openModal('custom-modal-1')"><i class="fas fa-fill-drip"></i> Dispense</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
+
+
+<pp-modal id="custom-modal-1" class="modal dispense-job-status-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Dispense Job Status</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal('custom-modal-1')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-3">
+
+        </div>
+
+        <div class="col-md-5">
+
+        </div>
+
+        <div class="col-md-4">
+          <div *ngFor="let colorantItem of dbItem.listColorant" class="color-bar-group">
+          <span class="color-bar" >
+            <span class="color-select" [ngStyle]="{'background': 'rgba(' + colorantItem.colorant.redV + ',' + colorantItem.colorant.greenV +',' + colorantItem.colorant.blueV + ',' + colorantItem.colorant.density +')',
+            'width': (colorantItem.quantity / quantity) * 100 + '%'}">
+              <span class="color-name">{{colorantItem.colorant.name}}</span>
+            </span>
+        </span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+
+        </div>
+
+        <div class="col-md-5">
+        <span class="base-can-empty" *ngIf="selectProductBase != null">
+          <span class="base-can-background">
+            <span class="base-can-volume" [ngStyle]="{'background-color': selectProductBase.color, 'height': selectProductBase.percentage + '%'}">
+              <span class="can-base-info">
+                <span class="base-type">Base : {{dbItem.base.type}}</span>
+                <span class="base-volume">{{selectProductBase.can + " " + selectProductBase.unit}}</span>
+                <span class="base-name">{{dbItem.base.name}}</span>
+              </span>
+            </span>
+          </span>
+        </span>
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="closeModal('custom-modal-1')">Hide</button>
+    </div>
+  </div>
+</pp-modal>

@@ -30,6 +30,12 @@ import {FormulaService} from "./services/formula/formula.service";
 import {BaseService} from "./services/base/base.service";
 import {ProductBaseService} from "./services/productbase/productbase.service";
 
+import {ModalService} from "./services/boostrap/modal.service";
+
+// import direction
+
+import {ModalComponent} from "./directions/boostrap/modal/modal.component";
+
 import {LoginComponent} from './components/login-page/login/login.component';
 import {RegisterComponent} from './components/login-page/register/register.component';
 import {ForgotpasswordComponent} from './components/login-page/forgotpassword/forgotpassword.component';
@@ -98,6 +104,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
 
+    // import directions
+    ModalComponent,
+
     // page !!
     LoginComponent,
     RegisterComponent,
@@ -154,6 +163,10 @@ const routes: Routes = [
     FormsModule
   ],
   providers: [
+    ModalService,
+
+
+
     IssueService,
     ColorantService,
     ProductService,
