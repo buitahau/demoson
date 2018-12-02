@@ -115,9 +115,9 @@ function getUnitFromUnitStr(unitStr : string){
   let unitArray = unitStr.toUpperCase().split(" ");
 
   if(unitArray.length > 1){
-    return unitArray[1];
+    return Number(unitArray[1]);
   } else {
-    return unitArray[0];
+    return Number(unitArray[0]);
   }
 }
 
