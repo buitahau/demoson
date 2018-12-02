@@ -20,6 +20,7 @@ import {ListComponent} from './components/issue/list/list.component';
 import {CreateComponent} from './components/issue/create/create.component';
 import {EditComponent} from './components/issue/edit/edit.component';
 import {HelpComponent} from './components/help/help.component';
+import {StructureComponent} from "./components/help/structure/structure.component";
 
 import {IssueService} from "./services/issues/issue.service";
 import {ColorantService} from "./services/colorant/colorant.service";
@@ -84,6 +85,7 @@ const routes: Routes = [
       {path: 'question', component : QuestionComponent},
       {path: 'help/overview', component: HelpComponent},
       {path: 'help/language', component: LanguageComponent},
+      {path: 'help/boostrap', component: StructureComponent},
 
       {path: 'create', component: CreateComponent},
       {path: 'edit/:id', component: EditComponent},
@@ -130,6 +132,7 @@ const routes: Routes = [
     QuestionComponent,
     HelpComponent,
     LanguageComponent,
+    StructureComponent,
   ],
 
   imports: [

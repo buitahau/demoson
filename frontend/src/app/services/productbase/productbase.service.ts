@@ -113,6 +113,7 @@ function getCanFromUnitStr(unitStr : string) : number{
 
 function getUnitFromUnitStr(unitStr : string){
   let unitArray = unitStr.toUpperCase().split(" ");
+
   if(unitArray.length > 1){
     return unitArray[1];
   } else {
