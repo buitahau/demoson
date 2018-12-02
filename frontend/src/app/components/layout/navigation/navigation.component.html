@@ -48,18 +48,18 @@
       <span class="menu-item">Help</span></a>
   </li>
 
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" id="developer-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="updateCurrentMode(devMode)" [attr.aria-expanded]="currentMode == devMode" aria-controls="collapseExample">
-      <i class="fas fa-cogs"></i>
-      <span class="menu-item">Developer</span>
-    </a>
+  <!--<li class="nav-item dropdown">-->
+    <!--<a class="nav-link dropdown-toggle" id="developer-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="updateCurrentMode(devMode)" [attr.aria-expanded]="currentMode == devMode" aria-controls="collapseExample">-->
+      <!--<i class="fas fa-cogs"></i>-->
+      <!--<span class="menu-item">Developer</span>-->
+    <!--</a>-->
 
-    <div class="dropdown-menu" aria-labelledby="developer-dropdown" [ngbCollapse]="currentMode != devMode" (click)="updateCurrentMode('hide')">
-      <h6 class="dropdown-header">Document :</h6>
-      <a class="dropdown-item" [routerLink]="['../dashboard/help/overview']">Overview</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" [routerLink]="['../dashboard/help/language']">Language</a>
-      <a class="dropdown-item" [routerLink]="['../dashboard/help/boostrap']">Boostrap Template</a>
-    </div>
-  </li>
+    <!--<div class="dropdown-menu" aria-labelledby="developer-dropdown" [ngbCollapse]="currentMode != devMode" (click)="updateCurrentMode('hide')">-->
+      <!--<h6 class="dropdown-header">Document :</h6>-->
+      <!--<a class="dropdown-item" [routerLink]="['../dashboard/help/overview']">Overview</a>-->
+      <!--<div class="dropdown-divider"></div>-->
+      <!--<a class="dropdown-item" [routerLink]="['../dashboard/help/language']">Language</a>-->
+      <!--<a class="dropdown-item" [routerLink]="['../dashboard/help/boostrap']">Boostrap Template</a>-->
+    <!--</div>-->
+  <!--</li>-->
 </ul>
